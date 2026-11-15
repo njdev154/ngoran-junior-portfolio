@@ -17,5 +17,6 @@
 - À faire : vérifier le rendu sur un téléphone réel, le formulaire de contact et les dates du parcours.
 
 ## 2026-11-15 — Publication finale
-- Fait : rétabli la validation native du formulaire, corrigé les identifiants SVG dupliqués, puis poussé le commit initial sur `main`.
-- À faire : vérifier la publication GitHub Pages.
+- Fait : rétabli la validation native du formulaire, corrigé les identifiants SVG dupliqués, créé le dépôt public, puis publié le site sur GitHub Pages.
+- Vérifications : site et images accessibles, affichage mobile sans débordement horizontal, filtre Laravel (2 projets) et validation native du formulaire.
+- À faire : tester le formulaire réel et le rendu sur un téléphone.
