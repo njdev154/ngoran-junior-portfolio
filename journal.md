@@ -24,4 +24,4 @@
 
 ## 2026-11-15 — Affichage du contact
 - Fait : réduit la taille de l'adresse e-mail dans le bloc contact et ajouté un point de coupure propre après « @ » pour éviter une dernière lettre seule sur sa ligne.
-- À faire : vérifier le rendu responsive en ligne.
+- Vérifications : rendu en ligne contrôlé de 320 px à 1700 px, sans débordement horizontal; l'adresse tient sur une ligne sauf sur le plus petit écran, où elle se coupe proprement après « @ ».
