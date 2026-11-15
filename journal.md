@@ -1,8 +1,8 @@
 # Journal du projet
 
 ## 2026-11-15 — Initialisation du portfolio
-- Fait : séparé le portfolio personnel de tout autre projet, préparé le dépôt local dédié et ajouté un workflow GitHub Pages.
-- À faire : créer le dépôt public `ngoran-junior-portfolio`, pousser la branche `main`, puis vérifier la publication.
+- Fait : séparé le portfolio personnel de tout autre projet et créé le dépôt public dédié `njdev154/ngoran-junior-portfolio`.
+- À faire : terminer la première publication GitHub Pages et vérifier le site en ligne.
 
 ## 2026-11-15
 - Fait : analysé le portfolio, son rendu responsive, ses filtres, ses traductions, ses formulaires et ses liens locaux. Les filtres fonctionnent, les images et chemins locaux sont présents, et aucun débordement horizontal n'a été relevé aux largeurs testées. Aucun code n'a été modifié.
@@ -17,5 +17,5 @@
 - À faire : vérifier le rendu sur un téléphone réel, le formulaire de contact et les dates du parcours.
 
 ## 2026-11-15 — Publication finale
-- Fait : rétabli la validation native du formulaire, corrigé les identifiants SVG dupliqués et préparé le déploiement autonome du portfolio.
-- À faire : publier sur GitHub Pages et vérifier les pages en ligne.
+- Fait : rétabli la validation native du formulaire, corrigé les identifiants SVG dupliqués, puis poussé le commit initial sur `main`.
+- À faire : vérifier la publication GitHub Pages.
