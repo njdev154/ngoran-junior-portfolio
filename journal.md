@@ -19,4 +19,9 @@
 ## 2026-11-15 — Publication finale
 - Fait : rétabli la validation native du formulaire, corrigé les identifiants SVG dupliqués, créé le dépôt public, puis publié le site sur GitHub Pages.
 - Vérifications : site et images accessibles, affichage mobile sans débordement horizontal, filtre Laravel (2 projets) et validation native du formulaire.
-- À faire : tester le formulaire réel et le rendu sur un téléphone.
+- Fait ensuite : test réel du formulaire confirmé par réception du message dans la boîte mail.
+- À faire : vérifier le rendu sur un téléphone.
+
+## 2026-11-15 — Affichage du contact
+- Fait : réduit la taille de l'adresse e-mail dans le bloc contact et ajouté un point de coupure propre après « @ » pour éviter une dernière lettre seule sur sa ligne.
+- À faire : vérifier le rendu responsive en ligne.
