@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projets — Portfolio N'Goran Junior</title>
+<meta name="description" content="Tous les projets de N'Goran Junior : sites vitrines publiés et plateformes Laravel en cours, avec filtres par technologie et statut.">
+<meta name="theme-color" content="#F5F8FA">
+<link rel="icon" type="image/svg+xml" href="../assets/images/logo-nj.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<!-- Rideau d'intro -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <div class="intro-logo">N'Goran <em>Junior</em></div>
+    <div class="intro-sub">Portfolio · 2026</div>
+    <div class="intro-bar"><i></i></div>
+  </div>
+  <button class="intro-skip" type="button" data-i18n="intro.skip">Passer l'intro</button>
+</div>
+<div class="veil" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label">VOIR</span></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html" aria-label="N'Goran Junior, accueil">
+      <img src="../assets/images/logo-nj.svg" alt="NJ" width="44" height="44">
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="../index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="projets.html" data-i18n="nav.projects" aria-current="page">Projets</a></li>
+      <li><a href="parcours.html" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <div class="lang" role="group" aria-label="Langue">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-line" data-magnet href="../assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" style="padding:.8rem 1.3rem" data-i18n="nav.cv">CV</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-hero">
+    <p class="kicker" data-i18n="pg.kicker">Tous les projets</p>
+    <h1 data-i18n="pg.title">Projets</h1>
+    <p class="lead" data-i18n="pg.lead">Six projets, du site vitrine publié à la plateforme Laravel en construction. Filtrez par technologie ou par statut — chaque fiche précise ce qui est réel, ce qui est simulé et ce qui reste à faire.</p>
+  </div>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="filters reveal" role="group" aria-label="Filtrer les projets">
+        <button type="button" class="fbtn" data-filter="all" aria-pressed="true" data-i18n="f.all">Tous</button>
+        <button type="button" class="fbtn" data-filter="front" aria-pressed="false" data-i18n="f.front">Front-end</button>
+        <button type="button" class="fbtn" data-filter="laravel" aria-pressed="false" data-i18n="f.laravel">Laravel · PHP</button>
+        <button type="button" class="fbtn" data-filter="live" aria-pressed="false" data-i18n="f.live">En ligne</button>
+        <button type="button" class="fbtn" data-filter="wip" aria-pressed="false" data-i18n="f.wip">En cours</button>
+      </div>
+      <div class="cards">
+        <a class="card reveal" href="../projets/cibanque.html" data-cat="front live" data-cursor="VOIR">
+          <figure><img src="../assets/images/cibanque-accueil.webp" alt="Page d'accueil de CIBANQUE" data-alt-en="Home page of CIBANQUE" width="1180" height="546" loading="lazy"><span class="no">N°01</span><span class="chip"><i></i><span data-i18n="status.live">En ligne</span></span></figure>
+          <div class="card-body"><h3><span>CIBANQUE</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="cibanque.d">Maquette d'application bancaire pour la Côte d'Ivoire : virements, carte, factures. Données fictives.</p><p class="tags">HTML · CSS · JavaScript</p></div>
+        </a>
+        <a class="card reveal" style="--d:.08s" href="../projets/dona-ci.html" data-cat="front live" data-cursor="VOIR">
+          <figure><img src="../assets/images/dona-accueil.webp" alt="Page d'accueil de Dona CI" data-alt-en="Home page of Dona CI" width="1180" height="539" loading="lazy"><span class="no">N°02</span><span class="chip"><i></i><span data-i18n="status.live">En ligne</span></span></figure>
+          <div class="card-body"><h3><span>DONA CI</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="dona.d">Site de mobilisation pour le don de sang : campagne, ressources et contact pour les organisations.</p><p class="tags">HTML · CSS · JavaScript</p></div>
+        </a>
+        <a class="card reveal" href="../projets/pigier-connect.html" data-cat="front live" data-cursor="VOIR">
+          <figure><img src="../assets/images/pigier-accueil.webp" alt="Page d'accueil de Pigier Connect" data-alt-en="Home page of Pigier Connect" width="1180" height="546" loading="lazy"><span class="no">N°03</span><span class="chip"><i></i><span data-i18n="status.live">En ligne</span></span></figure>
+          <div class="card-body"><h3><span>PIGIER CONNECT</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="pigier.d">Site vitrine et préinscription pour Pigier Yopougon : filières, recherche, FAQ.</p><p class="tags">HTML · CSS · JavaScript</p></div>
+        </a>
+        <a class="card reveal" style="--d:.08s" href="../projets/jeuneavenir-ci.html" data-cat="front wip" data-cursor="VOIR">
+          <figure><img src="../assets/images/jeuneavenir-accueil.webp" alt="Page d'accueil de JeuneAvenir CI" data-alt-en="Home page of JeuneAvenir CI" width="1180" height="559" loading="lazy"><span class="no">N°04</span><span class="chip wip"><i></i><span data-i18n="status.wip">En cours</span></span></figure>
+          <div class="card-body"><h3><span>JEUNEAVENIR CI</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="jeune.d">Orientation, mentorat et offres de stage pour les jeunes Ivoiriens.</p><p class="tags">HTML · CSS · JavaScript</p></div>
+        </a>
+        <a class="card reveal" href="../projets/passerelle.html" data-cat="laravel wip" data-cursor="VOIR">
+          <figure><img src="../assets/images/passerelle-accueil.webp" alt="Page d'accueil de Passerelle" data-alt-en="Home page of Passerelle" width="1180" height="553" loading="lazy"><span class="no">N°05</span><span class="chip wip"><i></i><span data-i18n="status.wip">En cours</span></span></figure>
+          <div class="card-body"><h3><span>PASSERELLE</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="passe.d">Stages et alternance : étudiants, entreprises et établissements sur une même plateforme.</p><p class="tags">Laravel · PHP · MySQL</p></div>
+        </a>
+        <a class="card reveal" style="--d:.08s" href="../projets/bizflow.html" data-cat="laravel wip" data-cursor="VOIR">
+          <figure><img src="../assets/images/bizflow-dashboard.webp" alt="Tableau de bord de BizFlow" data-alt-en="BizFlow dashboard" width="1600" height="740" loading="lazy"><span class="no">N°06</span><span class="chip wip"><i></i><span data-i18n="status.wip">En cours</span></span></figure>
+          <div class="card-body"><h3><span>BIZFLOW</span><span class="arr" aria-hidden="true">↗</span></h3><p data-i18n="biz.d">Clients, rendez-vous et paiements pour petites entreprises de services.</p><p class="tags">Laravel · PHP · Tailwind CSS</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-cta">
+    <p class="kicker" data-i18n="ft.kicker">Prêt quand vous l'êtes</p>
+    <h2><span data-i18n="ft.t1">Travaillons</span> <em data-i18n="ft.t2">ensemble.</em></h2>
+    <a class="btn-giant" data-magnet data-cursor="GO" href="contact.html"><span data-i18n="ft.cta">Démarrer un projet</span><span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="wrap footer-in">
+    <span>N'Goran Junior · <span data-i18n="foot.role">Étudiant en informatique</span> · Abidjan</span>
+    <nav><a href="certificats.html" data-i18n="foot.certs">Certificats</a><a href="https://github.com/njdev154" target="_blank" rel="noopener">GitHub ↗</a></nav>
+    <button class="to-top" type="button" data-i18n="foot.top">Haut ↑</button>
+    <span>© <span id="year">2026</span></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2250161506296" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.8-.9c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .5-.1 1z"/></svg>
+</a>
+
+<script>
+window.PF_TITLE_FR = "Projets — Portfolio N'Goran Junior";
+window.PF_TITLE_EN = "Projects — N'Goran Junior's portfolio";
+window.PF_PAGE_EN = {
+  "pg.kicker": "All projects",
+  "pg.title": "Projects",
+  "pg.lead": "Six projects, from published showcase sites to Laravel platforms under construction. Filter by technology or status — each case study states what is real, what is simulated and what remains to be done.",
+  "cibanque.d": "Online banking mockup for Côte d'Ivoire: transfers, card, bills. Fictional data.",
+  "dona.d": "Blood donation campaign site: campaign plan, resources and contact for organisations.",
+  "pigier.d": "Showcase site and pre-registration for Pigier Yopougon: programmes, search, FAQ.",
+  "jeune.d": "Orientation, mentoring and internship offers for young Ivorians.",
+  "passe.d": "Internships and work-study: students, companies and schools on one platform.",
+  "biz.d": "Client, appointment and payment management for small service businesses.",
+  "ft.kicker": "Ready when you are",
+  "ft.t1": "Let's work", "ft.t2": "together.",
+  "ft.cta": "Start a project"
+};
+</script>
+<script src="../js/main.js" defer></script>
+</body>
+</html>

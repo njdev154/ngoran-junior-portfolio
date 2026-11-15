@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Monogramme NJ de N'Goran Junior</title>
+  <desc id="desc">Un monogramme géométrique construit avec un N sombre et un J bleu ciel.</desc>
+  <rect width="256" height="256" rx="20" fill="#ffffff"/>
+  <path d="M38 194V62h29l49 68V62h30v132h-29l-49-68v68Z" fill="#101418"/>
+  <path d="M218 62h-47v30h17v59c0 15-6 20-17 20-9 0-16-4-22-11l-21 21c11 13 26 20 45 20 31 0 45-19 45-50Z" fill="#79C9EA"/>
+  <path d="M48 38h160" stroke="#DCE4E9" stroke-width="4"/>
+  <circle cx="48" cy="38" r="6" fill="#79C9EA"/>
+  <circle cx="208" cy="38" r="6" fill="#101418"/>
+</svg>
