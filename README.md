@@ -45,8 +45,8 @@ ne les redéfinis pas). Les attributs `alt` ont leur version anglaise
 
 ## Publication
 
-Le nom choisi pour le dépôt dédié est `njdev154/ngoran-junior-portfolio`.
-Après sa création, son workflow GitHub Actions publiera le site sur
+Le dépôt public dédié est `njdev154/ngoran-junior-portfolio`. GitHub Pages
+publie le contenu de la branche `main` depuis la racine sur
 `https://njdev154.github.io/ngoran-junior-portfolio/`.
 
 Pour publier une mise à jour, pousse les changements sur la branche `main`.
