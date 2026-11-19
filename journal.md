@@ -65,3 +65,9 @@
 - Vérifications : glissement 01→02, navigation au 07, chargement de la capture 1600×1000 dans un cadre 16:10, ouverture de l'étude de cas et présence du curseur testés dans le navigateur visible. La fiche comporte 4 fonctions et 4 groupes d'outils d'équipe; largeur 390 px sans débordement horizontal; aucune erreur navigateur. `node --check js\\main.js` et `git diff --check` réussis.
 - Démo enregistrée : `ya-satscope-project-swipe.webm`; script : `ya-satscope-project-swipe.js` (stockés dans le dossier de session).
 - À faire : vérifier le glissement sur un téléphone physique. WashMatic reste une étape séparée.
+
+## 2026-11-19 — Compétences, diplôme et lien JeuneAvenir CI
+- Agent : Copilot
+- Fait : retiré le sous-titre des technologies demandé; ajouté la pile YA SatScope en distinguant les outils du projet d'équipe et le niveau « Notions ». Reformulé le BTS comme obtenu à Pigier Côte d'Ivoire, ajouté le lien public JeuneAvenir CI et décrit honnêtement l'état actuel du site.
+- Fait : limité `Ctrl+A`/`Cmd+A` à la sélection dans les champs de texte, zones de texte et éléments éditables.
+- À faire : vérifier les deux langues, le comportement clavier, le lien public, l'affichage mobile et la console du navigateur; tester sur un téléphone réel.
