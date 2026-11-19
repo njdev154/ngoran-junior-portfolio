@@ -78,3 +78,16 @@
 - Fait : donné plus de temps à l'intro N puis J et à la lecture des textes; harmonisé les transitions principales autour de 400 ms et prolongé légèrement les révélations et le glissement du carrousel.
 - Vérifications : 15/15 captures chargées sur mobile, dont 13 variantes mobiles; aucune erreur console ni débordement horizontal à 390 px. Le transfert estimé des captures passe d'environ 3,2 Mo en PNG à 0,5 Mo pour la sélection mobile. Intro observée jusqu'à sa fermeture vers 4,8 s et supprimée avec `prefers-reduced-motion`. `node --check js\main.js` et `git diff --check` réussis.
 - À faire : vérifier le rendu sur un téléphone réel, puis ajouter sélectivement les fichiers du site et publier sur `main`.
+
+## 2026-11-19 — Retrait du bouton et durée de l'intro
+- Agent : Copilot
+- Fait : supprimé « Passer l'intro », son style, son écouteur et sa traduction de toutes les pages où il apparaissait.
+- Fait : réglé le départ de la fermeture à 3,85 s et la fermeture finale à 4,5 s; incrémenté la clé de première visite pour afficher cette version une seule fois.
+- Vérifications : les 14 pages se chargent sans bouton ni erreur console en mode mouvement réduit; aucune occurrence du bouton ou de sa clé dans le JavaScript ou le CSS. Le code règle la fermeture à 4,5 s; l'onglet de test étant masqué, le navigateur a observé 4,81 s, à confirmer lorsqu'il sera visible. `node --check js\main.js` et `git diff --check` réussis.
+- À faire : vérifier la durée sur un onglet visible et un téléphone réel, puis ajouter sélectivement les fichiers du site et publier sur `main`.
+
+## 2026-11-19 — Rythme des transitions des projets
+- Agent : Copilot
+- Fait : ralenti le voile de navigation à 1,2 s, synchronisé le changement de page à 600 ms, et étendu les révélations de contenu à 0,9 s.
+- Vérifications : clic sur la fiche YA SatScope, navigation vers la bonne page, durées CSS attendues et aucune erreur console. L'onglet de test étant masqué, la navigation a été mesurée à 1,49 s; à confirmer dans un onglet visible. `node --check js\main.js` et `git diff --check` réussis.
+- À faire : vérifier ces transitions sur un téléphone réel, puis ajouter sélectivement les changements non commités et publier sur `main`.
