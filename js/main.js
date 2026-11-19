@@ -8,6 +8,18 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  /* ---------- Sélection au clavier ---------- */
+  document.addEventListener("keydown", (event) => {
+    if (!(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== "a") return;
+    const target = event.target;
+    const isTextInput = target instanceof HTMLInputElement &&
+      ["text", "search", "email", "url", "tel", "password", "number"].includes(target.type);
+    const isTextArea = target instanceof HTMLTextAreaElement;
+    const isEditable = target instanceof HTMLElement &&
+      (target.isContentEditable || target.getAttribute("role") === "textbox");
+    if (!isTextInput && !isTextArea && !isEditable) event.preventDefault();
+  });
+
   /* ---------- 1. Intro de première visite ---------- */
   const intro = document.querySelector(".intro");
   if (intro instanceof HTMLDialogElement) {
