@@ -91,3 +91,17 @@
 - Fait : ralenti le voile de navigation à 1,2 s, synchronisé le changement de page à 600 ms, et étendu les révélations de contenu à 0,9 s.
 - Vérifications : clic sur la fiche YA SatScope, navigation vers la bonne page, durées CSS attendues et aucune erreur console. L'onglet de test étant masqué, la navigation a été mesurée à 1,49 s; à confirmer dans un onglet visible. `node --check js\main.js` et `git diff --check` réussis.
 - À faire : vérifier ces transitions sur un téléphone réel, puis ajouter sélectivement les changements non commités et publier sur `main`.
+
+## 2026-11-19 — Menu mobile et préparation WashMatic
+- Agent : Copilot
+- Fait : remplacé le caractère Unicode du hamburger par trois traits cohérents avec l'interface, animés en croix à l'ouverture. La touche Échap et la navigation ferment le menu et réinitialisent son état accessible.
+- Vérifications : 14 pages adaptées, menu ouvert/fermé par bouton, Échap et lien; aucun débordement à 390 px ni erreur navigateur. `node --check js\main.js` et `git diff --check` réussis.
+- WashMatic : inventorié 22 captures authentiques et leur liste; les écrans couvrent les espaces propriétaire, administration et gérant, avec des données de test et un paiement explicitement simulé. Le cahier PDF n'a pas pu être extrait, car l'accès au module Python `fitz` a été refusé par le bac à sable. L'étude de cas reste en attente d'une lecture accessible du cahier et de la confirmation des tâches réellement réalisées par Junior.
+- À faire : confirmer la contribution personnelle et fournir l'accès au contenu du cahier ou un export texte; puis construire l'étude de cas WashMatic sans attribuer à Junior le travail de toute l'équipe.
+
+## 2026-11-19 — Intégration de WashMatic
+- Agent : Copilot
+- Fait : ajouté WashMatic au carrousel et à la liste des projets, créé une fiche bilingue, et intégré quatre captures compressées. La contribution personnelle est décrite comme confirmée : chaîne caméra Python (OpenCV, YOLO, EasyOCR), une partie du front-end, MCD et base de données.
+- Contenu : distingué les fonctions d'équipe de la contribution individuelle; signalé que les données et le paiement GeniusPay montrés sont des simulations de test.
+- Vérifications : huit projets et huit commandes du carrousel; WashMatic apparaît avec les filtres Laravel et « En cours »; galerie, liens vers les captures complètes, traduction anglaise et images chargées. À 390 px, aucun débordement horizontal ni erreur console; `node --check js\\main.js` et `git diff --check` réussis.
+- À faire : relire le cahier des charges après mise à jour effective de la politique sandbox, puis préparer les commandes Git sélectives.
