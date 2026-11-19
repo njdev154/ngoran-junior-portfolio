@@ -105,3 +105,10 @@
 - Contenu : distingué les fonctions d'équipe de la contribution individuelle; signalé que les données et le paiement GeniusPay montrés sont des simulations de test.
 - Vérifications : huit projets et huit commandes du carrousel; WashMatic apparaît avec les filtres Laravel et « En cours »; galerie, liens vers les captures complètes, traduction anglaise et images chargées. À 390 px, aucun débordement horizontal ni erreur console; `node --check js\\main.js` et `git diff --check` réussis.
 - À faire : relire le cahier des charges après mise à jour effective de la politique sandbox, puis préparer les commandes Git sélectives.
+
+## 2026-11-19 — Explication des études de cas
+- Agent : Copilot
+- Fait : enrichi les fiches Dona CI, Pigier Connect, JeuneAvenir CI, Passerelle et BizFlow en précisant les parcours, les publics et les limites. Les parcours encore en conception sont explicitement présentés comme prévus, pas comme fonctionnels.
+- Sources : vérifié le contenu public actuel de Dona CI, Pigier Connect et JeuneAvenir CI; conservé les statuts déjà documentés pour Passerelle et BizFlow.
+- Vérifications : clés de traduction anglaise présentes pour chaque nouvelle section; `node --check js\\main.js` et `git diff --check` réussis.
+- À faire : vérifier ces cinq fiches dans un navigateur mobile réel et compléter les descriptions si de nouvelles fonctionnalités sont confirmées.
