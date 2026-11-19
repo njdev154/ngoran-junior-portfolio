@@ -8,18 +8,6 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* ---------- Sélection au clavier ---------- */
-  document.addEventListener("keydown", (event) => {
-    if (!(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== "a") return;
-    const target = event.target;
-    const isTextInput = target instanceof HTMLInputElement &&
-      ["text", "search", "email", "url", "tel", "password", "number"].includes(target.type);
-    const isTextArea = target instanceof HTMLTextAreaElement;
-    const isEditable = target instanceof HTMLElement &&
-      (target.isContentEditable || target.getAttribute("role") === "textbox");
-    if (!isTextInput && !isTextArea && !isEditable) event.preventDefault();
-  });
-
   /* ---------- 1. Intro de première visite ---------- */
   const intro = document.querySelector(".intro");
   if (intro instanceof HTMLDialogElement) {
@@ -244,9 +232,10 @@
     "nav.home": "Home", "nav.projects": "Projects", "nav.journey": "Journey",
     "nav.about": "About", "nav.contact": "Contact", "nav.cv": "Résumé",
     "foot.role": "Computer science student", "foot.certs": "Certificates", "foot.top": "Top ↑",
-    "status.live": "Live", "status.wip": "In progress",
+    "status.live": "Live", "status.demo": "Online demo", "status.wip": "In progress",
     "f.all": "All", "f.front": "Front end", "f.laravel": "Laravel · PHP", "f.live": "Live", "f.wip": "In progress",
     "f.name": "Name", "f.subject": "Subject", "f.send": "Send message",
+    "f.privacy": "The information you enter is sent to Formspree to deliver your message. Please do not include sensitive information.",
     "k.time": "Time in Abidjan", "back.projects": "← All projects"
   }, window.PF_COMMON_EN || {});
   const DICT = Object.assign({}, window.PF_COMMON_EN, window.PF_PAGE_EN || {});
