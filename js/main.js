@@ -23,7 +23,7 @@
   /* ---------- 1. Intro de première visite ---------- */
   const intro = document.querySelector(".intro");
   if (intro instanceof HTMLDialogElement) {
-    const introKey = "nj-portfolio-intro-seen-v2";
+    const introKey = "nj-portfolio-intro-seen-v3";
     let seen = false;
     try { seen = localStorage.getItem(introKey) === "1"; }
     catch (error) { console.warn("Impossible de lire la préférence de l'intro.", error); }
@@ -38,8 +38,8 @@
       intro.addEventListener("animationend", (event) => {
         if (event.target === intro) finishIntro();
       });
-      window.setTimeout(() => intro.classList.add("is-leaving"), 1350);
-      window.setTimeout(finishIntro, 2350);
+      window.setTimeout(() => intro.classList.add("is-leaving"), 4100);
+      window.setTimeout(finishIntro, 4800);
     } else {
       intro.remove();
     }
@@ -194,7 +194,7 @@
       cards.forEach((c) => {
         const show = f === "all" || (c.dataset.cat || "").split(" ").includes(f);
         c.classList.toggle("hide", !show);
-        if (show && !reduced) { c.style.animation = "none"; void c.offsetWidth; c.style.animation = "cardIn .5s var(--ease)"; }
+        if (show && !reduced) { c.style.animation = "none"; void c.offsetWidth; c.style.animation = "cardIn .6s var(--ease)"; }
       });
     }));
     const st = document.createElement("style");

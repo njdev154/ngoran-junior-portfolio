@@ -71,3 +71,10 @@
 - Fait : retiré le sous-titre des technologies demandé; ajouté la pile YA SatScope en distinguant les outils du projet d'équipe et le niveau « Notions ». Reformulé le BTS comme obtenu à Pigier Côte d'Ivoire, ajouté le lien public JeuneAvenir CI et décrit honnêtement l'état actuel du site.
 - Fait : limité `Ctrl+A`/`Cmd+A` à la sélection dans les champs de texte, zones de texte et éléments éditables.
 - À faire : vérifier les deux langues, le comportement clavier, le lien public, l'affichage mobile et la console du navigateur; tester sur un téléphone réel.
+
+## 2026-11-19 — Optimisation YA SatScope et rythme des animations
+- Agent : Copilot
+- Fait : converti les 15 captures YA SatScope en WebP et créé 13 variantes mobiles de 800 px; les pages utilisent désormais `srcset` pour choisir la bonne taille.
+- Fait : donné plus de temps à l'intro N puis J et à la lecture des textes; harmonisé les transitions principales autour de 400 ms et prolongé légèrement les révélations et le glissement du carrousel.
+- Vérifications : 15/15 captures chargées sur mobile, dont 13 variantes mobiles; aucune erreur console ni débordement horizontal à 390 px. Le transfert estimé des captures passe d'environ 3,2 Mo en PNG à 0,5 Mo pour la sélection mobile. Intro observée jusqu'à sa fermeture vers 4,8 s et supprimée avec `prefers-reduced-motion`. `node --check js\main.js` et `git diff --check` réussis.
+- À faire : vérifier le rendu sur un téléphone réel, puis ajouter sélectivement les fichiers du site et publier sur `main`.
