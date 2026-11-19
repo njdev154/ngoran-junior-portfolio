@@ -20,7 +20,8 @@ souris et au tactile, et animations réduites pour privilégier la lisibilité.
   (`cibanque`, `dona-ci`, `pigier-connect`, `jeuneavenir-ci`, `passerelle`,
   `bizflow`, `ya-satscope`)
 - `projets/ya-satscope.html` : étude de cas du projet d'équipe de stage,
-  illustrée par les 15 captures authentiques optimisées dans `assets/images/ya-satscope/`.
+  illustrée par 15 captures en WebP, avec des versions adaptées aux écrans mobiles dans
+  `assets/images/ya-satscope/`.
   Les fonctionnalités et outils sont présentés comme travail d'équipe ; la fiche
   précise la contribution de Junior et son niveau débutant.
 - `404.html` : page d'erreur (servie par GitHub Pages)
@@ -29,7 +30,7 @@ souris et au tactile, et animations réduites pour privilégier la lisibilité.
   par lettre des titres, révélations,
   compteurs, filtres, menu mobile, bilingue FR/EN, formulaires et parcours de
   demande en 4 étapes
-- `assets/` : captures de YA SatScope (PNG), images (WebP), logo, CV (PDF),
+- `assets/` : captures de YA SatScope (PNG source et WebP optimisés), images (WebP), logo, CV (PDF),
   certificat Excel (PDF)
 
 ## Bilingue FR / EN
@@ -64,6 +65,6 @@ Pour publier une mise à jour, pousse les changements sur la branche `main`.
 ## Bonnes pratiques
 
 - Ne publie jamais de clé secrète ou de fichier `.env`.
-- Les captures des projets sont en WebP (`assets/images/`) pour un chargement rapide.
+- Les pages utilisent les captures YA SatScope en WebP (`assets/images/`) avec des variantes mobiles et un chargement différé de la galerie.
 - Le site respecte `prefers-reduced-motion` : les animations sont désactivées
   pour les utilisateurs qui le demandent.
