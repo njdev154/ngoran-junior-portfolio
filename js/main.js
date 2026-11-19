@@ -23,7 +23,7 @@
   /* ---------- 1. Intro de première visite ---------- */
   const intro = document.querySelector(".intro");
   if (intro instanceof HTMLDialogElement) {
-    const introKey = "nj-portfolio-intro-seen-v3";
+    const introKey = "nj-portfolio-intro-seen-v4";
     let seen = false;
     try { seen = localStorage.getItem(introKey) === "1"; }
     catch (error) { console.warn("Impossible de lire la préférence de l'intro.", error); }
@@ -34,12 +34,11 @@
       intro.classList.add("is-entering");
       intro.showModal();
       const finishIntro = () => { if (intro.open) intro.close(); };
-      intro.querySelector(".intro-skip")?.addEventListener("click", finishIntro);
       intro.addEventListener("animationend", (event) => {
         if (event.target === intro) finishIntro();
       });
-      window.setTimeout(() => intro.classList.add("is-leaving"), 4100);
-      window.setTimeout(finishIntro, 4800);
+      window.setTimeout(() => intro.classList.add("is-leaving"), 3850);
+      window.setTimeout(finishIntro, 4500);
     } else {
       intro.remove();
     }
@@ -229,14 +228,14 @@
         e.preventDefault();
         vlabel.textContent = (a.dataset.veil || a.textContent || "").trim().replace(/\s+/g, " ").slice(0, 28);
         veil.classList.remove("go"); void veil.offsetWidth; veil.classList.add("go");
-        setTimeout(() => { location.href = href; }, 420);
+        setTimeout(() => { location.href = href; }, 600);
       });
     });
   }
 
   /* ---------- 9. Bilingue FR / EN ---------- */
   window.PF_COMMON_EN = Object.assign({
-    "skip": "Skip to content", "intro.skip": "Skip intro",
+    "skip": "Skip to content",
     "nav.home": "Home", "nav.projects": "Projects", "nav.journey": "Journey",
     "nav.about": "About", "nav.contact": "Contact", "nav.cv": "Résumé",
     "foot.role": "Computer science student", "foot.certs": "Certificates", "foot.top": "Top ↑",
