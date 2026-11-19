@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WashMatic — Étude de cas | Portfolio N'Goran Junior</title>
+<meta name="description" content="WashMatic, projet d'équipe de stage pour la gestion d'un lavage auto. Contribution de N'Goran Junior au traitement caméra avec Python, OpenCV, YOLO et EasyOCR.">
+<meta name="theme-color" content="#F5F8FA">
+<link rel="icon" type="image/svg+xml" href="../assets/images/logo-nj.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<div class="cursor" aria-hidden="true"><span class="cursor-label">VOIR</span></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html" aria-label="N'Goran Junior, accueil">
+      <img src="../assets/images/logo-nj.svg" alt="NJ" width="44" height="44">
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="../index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="../pages/projets.html" data-i18n="nav.projects" aria-current="page">Projets</a></li>
+      <li><a href="../pages/parcours.html" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="../pages/a-propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="../pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <div class="lang" role="group" aria-label="Langue">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-line" data-magnet href="../assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" style="padding:.8rem 1.3rem" data-i18n="nav.cv">CV</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-hero" style="padding-bottom:0">
+    <a class="back-link" href="../pages/projets.html" data-i18n="back.projects">← Tous les projets</a>
+    <header class="case-head">
+      <p class="kicker" data-i18n="wm.kicker">Étude de cas · Projet d'équipe en stage</p>
+      <h1>WashMatic</h1>
+      <p class="lead" data-i18n="wm.lead">Application de gestion pour lavage auto réalisée en équipe pendant mon stage. J'ai travaillé sur la chaîne caméra en Python et participé à une partie du front-end.</p>
+      <dl class="case-meta">
+        <div><dt data-i18n="c.type.l">Type</dt><dd data-i18n="wm.type">Projet d'équipe · Stage</dd></div>
+        <div><dt data-i18n="c.stack.l">Technologies</dt><dd>Python · OpenCV · YOLO · EasyOCR</dd></div>
+        <div><dt data-i18n="c.status.l">Statut</dt><dd data-i18n="wm.status">Prototype local · données de test</dd></div>
+      </dl>
+    </header>
+  </div>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <figure class="case-cover reveal">
+        <img src="../assets/images/washmatic/01-tableau-bord.jpg" alt="Tableau de bord propriétaire WashMatic avec des volumes et montants de test" data-alt-en="WashMatic owner dashboard with test volumes and amounts" width="1600" height="1000" fetchpriority="high" decoding="async">
+      </figure>
+
+      <div class="case-grid">
+        <div class="case-block reveal">
+          <h2 data-i18n="wm.contextTitle">Contexte</h2>
+          <p data-i18n="wm.context">WashMatic rassemble plusieurs espaces pour un centre de lavage auto : suivi des passages, état des caméras, gestion des tarifs et déclarations quotidiennes. L'application a été réalisée par une équipe de trois pendant mon stage.</p>
+        </div>
+        <div class="case-block reveal" style="--d:.1s">
+          <h2 data-i18n="wm.roleTitle">Ma contribution</h2>
+          <p data-i18n="wm.role">J'ai pris en charge la partie liée aux caméras : traitement en Python avec OpenCV, détection avec YOLO et lecture de plaques avec EasyOCR. J'ai aussi participé à certaines vues du front-end ainsi qu'au MCD et à la base de données. Le reste de l'application est un travail d'équipe.</p>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block reveal">
+          <h2 data-i18n="wm.featuresTitle">Fonctions visibles de l'application</h2>
+          <ul>
+            <li data-i18n="wm.feature1">Suivre l'état des caméras d'entrée, de lavage et de sortie, ainsi que les passages associés.</li>
+            <li data-i18n="wm.feature2">Consulter les plaques et catégories détectées, puis corriger une lecture et garder une trace dans le journal d'audit.</li>
+            <li data-i18n="wm.feature3">Gérer les catégories de véhicules, les prestations, les tarifs, les comptes et les caméras depuis l'espace d'administration.</li>
+            <li data-i18n="wm.feature4">Comparer les volumes et montants remontés par l'application avec le point quotidien déclaré par le gérant.</li>
+          </ul>
+        </div>
+        <div class="case-block reveal" style="--d:.1s">
+          <h2 data-i18n="wm.stackTitle">Outils et périmètre</h2>
+          <ul>
+            <li data-i18n="wm.stack1">Python, OpenCV, YOLO et EasyOCR pour le traitement caméra et la lecture de plaques.</li>
+            <li data-i18n="wm.stack2">Laravel et PHP pour l'application web d'équipe; j'ai contribué à une partie de son interface.</li>
+            <li data-i18n="wm.stack3">La base SQLite utilisée pour les captures est une base locale de test, pas une base de production.</li>
+            <li data-i18n="wm.stack4">Le paiement GeniusPay affiché dans les écrans est simulé; aucun paiement réel n'a été effectué.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="disclaimer reveal">
+        <strong data-i18n="wm.captureNoteTitle">À propos des captures</strong>
+        <span data-i18n="wm.captureNote">Ces écrans viennent d'une exécution locale de l'application. Les comptes, plaques, volumes et montants visibles sont des données de test; les écrans de paiement sont en mode simulation. Le service Python des caméras fonctionne séparément et n'a pas d'interface web dédiée.</span>
+      </aside>
+
+      <h2 class="case-gallery-title" data-i18n="wm.galleryTitle">Quelques écrans de WashMatic</h2>
+      <div class="case-gallery">
+        <figure class="case-shot reveal">
+          <a href="../assets/images/washmatic/02-cameras.jpg" target="_blank" rel="noopener">
+            <img src="../assets/images/washmatic/02-cameras.jpg" alt="État des caméras IP enregistrées dans WashMatic" data-alt-en="Status of IP cameras registered in WashMatic" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="wm.shot1Title">État des caméras</strong><span data-i18n="wm.shot1Text">Vue de suivi des caméras configurées dans l'application.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/washmatic/03-corrections-plaques.jpg" target="_blank" rel="noopener">
+            <img src="../assets/images/washmatic/03-corrections-apercu.jpg" alt="Aperçu des plaques reconnues dans l'espace administrateur" data-alt-en="Preview of recognized plates in the administrator area" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="wm.shot2Title">Lectures et corrections</strong><span data-i18n="wm.shot2Text">Aperçu de l'historique des plaques reconnues; cliquez pour ouvrir la capture complète.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/washmatic/04-point-quotidien.jpg" target="_blank" rel="noopener">
+            <img src="../assets/images/washmatic/04-point-quotidien.jpg" alt="Formulaire de déclaration quotidienne du gérant" data-alt-en="Manager's daily report form" width="1600" height="1125" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="wm.shot3Title">Point quotidien</strong><span data-i18n="wm.shot3Text">Saisie des quantités et du chiffre d'affaires déclarés par le gérant.</span></figcaption>
+          </a>
+        </figure>
+      </div>
+
+      <a class="next-case reveal" href="../pages/projets.html" data-cursor="VOIR">
+        <div><span data-i18n="wm.backLabel">Retour à la sélection</span><b data-i18n="wm.backTitle">Tous les projets</b></div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-cta">
+    <p class="kicker" data-i18n="ft.kicker">Prêt quand vous l'êtes</p>
+    <h2><span data-i18n="ft.t1">Travaillons</span> <em data-i18n="ft.t2">ensemble.</em></h2>
+    <a class="btn-giant" data-magnet data-cursor="GO" href="../pages/contact.html"><span data-i18n="ft.cta">Démarrer un projet</span><span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="wrap footer-in">
+    <span>N'Goran Junior · <span data-i18n="foot.role">Étudiant en informatique</span> · Abidjan</span>
+    <nav><a href="../pages/certificats.html" data-i18n="foot.certs">Certificats</a><a href="https://github.com/njdev154" target="_blank" rel="noopener">GitHub ↗</a></nav>
+    <button class="to-top" type="button" data-i18n="foot.top">Haut ↑</button>
+    <span>© <span id="year">2026</span></span>
+  </div>
+</footer>
+
+<script>
+window.PF_TITLE_FR = "WashMatic — Étude de cas | Portfolio N'Goran Junior";
+window.PF_TITLE_EN = "WashMatic — Case study | N'Goran Junior's portfolio";
+window.PF_PAGE_EN = {
+  "wm.kicker": "Case study · Team project during internship",
+  "wm.lead": "A management application for a car wash, built by a team during my internship. I worked on the Python camera pipeline and contributed to part of the front end.",
+  "wm.type": "Team project · Internship",
+  "wm.status": "Local prototype · test data",
+  "wm.contextTitle": "Context",
+  "wm.context": "WashMatic brings together several work areas for a car wash: passage tracking, camera status, pricing and daily reports. A team of three built the application during my internship.",
+  "wm.roleTitle": "My contribution",
+  "wm.role": "I worked on the camera side: image processing in Python with OpenCV, detection with YOLO and plate reading with EasyOCR. I also contributed to some front-end views and to the data model and database. The rest of the application was a team effort.",
+  "wm.featuresTitle": "Visible application features",
+  "wm.feature1": "Monitor entry, wash and exit cameras, along with related vehicle passages.",
+  "wm.feature2": "Review detected plates and vehicle categories, correct a reading and keep a record in the audit log.",
+  "wm.feature3": "Manage vehicle categories, services, prices, accounts and cameras from the administration area.",
+  "wm.feature4": "Compare application volumes and amounts with the manager's daily report.",
+  "wm.stackTitle": "Tools and scope",
+  "wm.stack1": "Python, OpenCV, YOLO and EasyOCR for camera processing and plate reading.",
+  "wm.stack2": "Laravel and PHP for the team's web application; I contributed to part of its interface.",
+  "wm.stack3": "The SQLite database used for the screenshots is a local test database, not a production database.",
+  "wm.stack4": "The GeniusPay payment screens are simulated; no real payment was made.",
+  "wm.captureNoteTitle": "About these screenshots",
+  "wm.captureNote": "These screens come from a local run of the application. Accounts, plates, volumes and amounts are test data; payment screens use simulation mode. The Python camera service runs separately and has no dedicated web interface.",
+  "wm.galleryTitle": "A few WashMatic screens",
+  "wm.shot1Title": "Camera status",
+  "wm.shot1Text": "Camera monitoring view configured in the application.",
+  "wm.shot2Title": "Plate readings and corrections",
+  "wm.shot2Text": "Preview of recognized plates; click to open the full screenshot.",
+  "wm.shot3Title": "Daily report",
+  "wm.shot3Text": "Vehicle counts and revenue entered by the manager.",
+  "wm.backLabel": "Back to selected work",
+  "wm.backTitle": "All projects"
+};
+</script>
+<script src="../js/main.js" defer></script>
+</body>
+</html>

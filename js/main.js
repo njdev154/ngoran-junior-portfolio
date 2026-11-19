@@ -204,15 +204,20 @@
   /* ---------- 7. Menu mobile ---------- */
   const burger = document.querySelector(".burger"), menu = document.querySelector(".menu");
   if (burger && menu) {
+    const closeMenu = () => {
+      burger.setAttribute("aria-expanded", "false");
+      menu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    };
     burger.addEventListener("click", () => {
       const open = menu.classList.toggle("open");
       burger.setAttribute("aria-expanded", String(open));
       document.body.classList.toggle("menu-open", open);
     });
-    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
-      menu.classList.remove("open");
-      document.body.classList.remove("menu-open");
-    }));
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.classList.contains("open")) closeMenu();
+    });
   }
 
   /* ---------- 8. Voile de transition entre pages ---------- */

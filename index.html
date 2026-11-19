@@ -44,7 +44,7 @@
         <button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
       <a class="btn btn-line" data-magnet href="assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" style="padding:.8rem 1.3rem" data-i18n="nav.cv">CV</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">☰</button>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
     </div>
   </div>
 </header>
@@ -67,7 +67,7 @@
           <a class="btn btn-line" data-magnet href="assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" data-i18n="h.cta2">Télécharger mon CV</a>
         </div>
         <div class="hero-stats">
-          <div class="stat reveal"><b data-count="7">0</b><span data-i18n="st1">projets</span></div>
+          <div class="stat reveal"><b data-count="8">0</b><span data-i18n="st1">projets</span></div>
           <div class="stat reveal" style="--d:.1s"><b data-count="3">0</b><span data-i18n="st2">en ligne</span></div>
           <div class="stat reveal" style="--d:.2s"><b data-count="1">0</b><span data-i18n="st3">certification</span></div>
         </div>
@@ -119,7 +119,7 @@
       <div class="sec-head reveal">
         <p class="kicker" data-i18n="w.kicker">01 / Sélection</p>
         <h2 data-i18n="w.title">Travaux sélectionnés</h2>
-        <p data-i18n="w.sub">Sept projets, des sites vitrines et plateformes web à un prototype de suivi satellitaire. Chaque fiche précise ce qui est réel et ce qui reste à valider.</p>
+        <p data-i18n="w.sub">Huit projets, des sites vitrines et plateformes web à un prototype de suivi satellitaire et un outil de gestion pour lavage auto. Chaque fiche précise ce qui est réel et ce qui reste à valider.</p>
       </div>
       <div class="showcase reveal" id="proj-showcase" tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Projets sélectionnés" data-i18n-aria="car.label">
         <div class="sc-viewport">
@@ -187,6 +187,15 @@
             </div>
           </a>
         </article>
+        <article class="sc-slide" data-project="washmatic">
+          <a class="sc-link" href="projets/washmatic.html" data-cursor="VOIR" tabindex="-1">
+            <figure class="sc-media"><img src="assets/images/washmatic/01-tableau-bord.jpg" alt="Tableau de bord WashMatic avec des données de test" data-alt-en="WashMatic dashboard with test data" width="1600" height="1000" loading="lazy" decoding="async"><span class="no">N°08</span><span class="chip wip"><i></i><span data-i18n="status.wip">En cours</span></span></figure>
+            <div class="sc-info">
+              <h3>WASHMATIC</h3>
+              <div class="sc-desc"><p data-i18n="washmatic.d">Outil de gestion pour lavage auto : suivi des caméras, passages de véhicules et déclarations quotidiennes.</p><p class="tags">Python · OpenCV · YOLO · EasyOCR</p><span class="sc-more"><span data-i18n="car.more">Voir l'étude de cas</span><span class="arr" aria-hidden="true">→</span></span></div>
+            </div>
+          </a>
+        </article>
           </div>
         </div>
         <button type="button" class="sc-arrow sc-prev" id="sc-prev" aria-label="Projet précédent" data-i18n-aria="car.prev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m7-7l-7 7 7 7"/></svg></button>
@@ -200,12 +209,13 @@
           <button type="button" class="sc-dot" role="tab" aria-label="5"></button>
           <button type="button" class="sc-dot" role="tab" aria-label="6"></button>
           <button type="button" class="sc-dot" role="tab" aria-label="7"></button>
+          <button type="button" class="sc-dot" role="tab" aria-label="8"></button>
           </div>
-          <span class="sc-count mono"><span id="sc-i">01</span> / 07</span>
+          <span class="sc-count mono"><span id="sc-i">01</span> / 08</span>
           <span class="sc-swipe-hint" data-i18n="car.swipe">Glissez ou utilisez les flèches</span>
         </div>
       </div>
-      <div class="center reveal" style="margin-top:2.6rem"><a class="btn btn-ghost" href="pages/projets.html" data-magnet><span data-i18n="w.all">Voir les sept projets</span><span class="arr" aria-hidden="true">→</span></a></div>
+      <div class="center reveal" style="margin-top:2.6rem"><a class="btn btn-ghost" href="pages/projets.html" data-magnet><span data-i18n="w.all">Voir les huit projets</span><span class="arr" aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -232,7 +242,7 @@
         <div class="sk-group">
           <p class="sk-gname" data-i18n="m.data">Données</p>
           <div class="sk-row"><span class="sk-tech">MySQL</span><span class="sk-lv" data-i18n="lv.prog4">Notions</span><span class="sk-proj">PASSERELLE</span></div>
-          <div class="sk-row"><span class="sk-tech">SQLite</span><span class="sk-lv" data-i18n="lv.prog5">Notions</span><span class="sk-proj">BIZFLOW · YA SATSCOPE (ÉQUIPE)</span></div>
+          <div class="sk-row"><span class="sk-tech">SQLite</span><span class="sk-lv" data-i18n="lv.prog5">Notions</span><span class="sk-proj">WASHMATIC (TEST) · BIZFLOW · YA SATSCOPE (ÉQUIPE)</span></div>
         </div>
         <div class="sk-group">
           <p class="sk-gname" data-i18n="m.tools">Outils</p>
@@ -247,13 +257,20 @@
           <div class="sk-row"><span class="sk-tech">PyQtGraph</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">YA SATSCOPE (ÉQUIPE)</span></div>
         </div>
         <div class="sk-group">
+          <p class="sk-gname" data-i18n="m.vision">Vision par ordinateur</p>
+          <div class="sk-row"><span class="sk-tech">Python</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">WASHMATIC</span></div>
+          <div class="sk-row"><span class="sk-tech">OpenCV</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">WASHMATIC</span></div>
+          <div class="sk-row"><span class="sk-tech">YOLO</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">WASHMATIC</span></div>
+          <div class="sk-row"><span class="sk-tech">EasyOCR</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">WASHMATIC</span></div>
+        </div>
+        <div class="sk-group">
           <p class="sk-gname" data-i18n="m.satTools">Outils du projet d'équipe</p>
           <div class="sk-row"><span class="sk-tech">SDR</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">YA SATSCOPE (ÉQUIPE · MATÉRIEL À VALIDER)</span></div>
           <div class="sk-row"><span class="sk-tech">SatDump</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">YA SATSCOPE (OUTIL EXTERNE)</span></div>
           <div class="sk-row"><span class="sk-tech">SatNOGS</span><span class="sk-lv" data-i18n="lv.prog">Notions</span><span class="sk-proj">YA SATSCOPE (RÉSEAU D'OBSERVATIONS)</span></div>
         </div>
       </div>
-      <p class="sk-note reveal" data-i18n="sk.note">Je débute encore : les outils marqués « équipe » appartiennent à la pile de YA SatScope et ne signifient pas que je les maîtrise individuellement.</p>
+      <p class="sk-note reveal" data-i18n="sk.note">Je débute encore : les outils marqués « équipe » appartiennent à la pile collective de YA SatScope et ne signifient pas que je les maîtrise individuellement.</p>
       <div class="skill-extra">
         <div class="reveal"><h3 data-i18n="x.study">Étudiés en cours</h3><p data-i18n="x.study.v">Langage C, SQL, modélisation Merise, Linux.</p></div>
         <div class="reveal" style="--d:.08s"><h3 data-i18n="x.office">Bureautique</h3><p data-i18n="x.office.v">Excel (certifié Microsoft), Word, Office 365.</p></div>
@@ -525,9 +542,9 @@ window.PF_PAGE_EN = {
   "h.scroll": "Scroll",
   "st1": "projects", "st2": "live", "st3": "certification",
   "w.kicker": "01 / Selected work", "w.title": "Selected work",
-  "w.sub": "Seven projects, from showcase sites and Laravel platforms to a desktop satellite-tracking prototype. Each case study states what is real, what is simulated and what remains to be done.",
+  "w.sub": "Eight projects, from showcase sites and web platforms to a satellite-tracking prototype and an auto-wash management tool. Each case study states what is real, what is simulated and what remains to be done.",
   "car.label": "Selected projects", "car.choose": "Choose a project", "car.prev": "Previous project", "car.next": "Next project",
-  "car.more": "Read the case study", "car.swipe": "Swipe or use the arrows", "w.all": "See all seven projects",
+  "car.more": "Read the case study", "car.swipe": "Swipe or use the arrows", "w.all": "See all eight projects",
   "mani.text": "Real projects, clean code, constant progress — that is how I build the web.",
   "cibanque.d": "Online banking mockup for Côte d'Ivoire: transfers, card, bills. Fictional data.",
   "dona.d": "Blood donation campaign site: campaign plan, resources and contact for organisations.",
@@ -536,15 +553,16 @@ window.PF_PAGE_EN = {
   "passe.d": "Internships and work-study: students, companies and schools on one platform.",
   "biz.d": "Client, appointment and payment management for small service businesses.",
   "yasatscope.d": "A team-built desktop app for satellite tracking and spectrum analysis during my internship.",
+  "washmatic.d": "An auto-wash management tool for camera monitoring, vehicle passages and daily reports.",
   "mq1": "Showcase websites", "mq2": "Web platforms", "mq3": "Management apps",
   "mq1b": "Showcase websites", "mq2b": "Web platforms", "mq3b": "Management apps",
   "sc.kicker": "02 / Skills", "sc.title": "My stack, project by project",
-  "sk.note": "I am still a beginner: tools marked “team” belong to YA SatScope's shared stack and do not mean I master them individually.",
+  "sk.note": "I am still learning: “team” marks YA SatScope's shared stack and does not mean I master every tool individually.",
   "m.level": "Level", "m.web": "Web development", "m.back": "Back end", "m.data": "Data", "m.tools": "Tools",
-  "m.sat": "Desktop applications & scientific computing", "m.satTools": "Tools from the team project",
+  "m.sat": "Desktop applications & scientific computing", "m.satTools": "Tools from the team project", "m.vision": "Computer vision",
   "lv.pr": "Basics", "lv.pr2": "Basics", "lv.pr3": "Learning", "lv.pr4": "Learning",
   "lv.prog": "Learning", "lv.prog2": "Learning", "lv.prog3": "Learning", "lv.prog4": "Learning", "lv.prog5": "Learning",
-  "m.legend": "Dot = used in the project (N°01 to N°07, same order as above).",
+  "m.legend": "Dot = used in the project (N°01 to N°08, same order as above).",
   "x.study": "Studied in class", "x.study.v": "C language, SQL, Merise modelling, Linux.",
   "x.office": "Office tools", "x.office.v": "Excel (Microsoft certified), Word, Office 365.",
   "x.comm": "Communication", "x.comm.v": "Public speaking, remote work, creativity.",
