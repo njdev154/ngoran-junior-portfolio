@@ -8,27 +8,91 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* ---------- 1. Nettoyer l'ancienne intro ---------- */
+  /* ---------- 1. Intro de première visite ---------- */
   const intro = document.querySelector(".intro");
-  if (intro) intro.remove();
-  document.documentElement.classList.remove("lock");
+  if (intro instanceof HTMLDialogElement) {
+    const introKey = "nj-portfolio-intro-seen-v2";
+    let seen = false;
+    try { seen = localStorage.getItem(introKey) === "1"; }
+    catch (error) { console.warn("Impossible de lire la préférence de l'intro.", error); }
+
+    if (!reduced && !seen && typeof intro.showModal === "function") {
+      try { localStorage.setItem(introKey, "1"); }
+      catch (error) { console.warn("Impossible de mémoriser l'intro.", error); }
+      intro.classList.add("is-entering");
+      intro.showModal();
+      const finishIntro = () => { if (intro.open) intro.close(); };
+      intro.querySelector(".intro-skip")?.addEventListener("click", finishIntro);
+      intro.addEventListener("animationend", (event) => {
+        if (event.target === intro) finishIntro();
+      });
+      window.setTimeout(() => intro.classList.add("is-leaving"), 1350);
+      window.setTimeout(finishIntro, 2350);
+    } else {
+      intro.remove();
+    }
+  } else if (intro) {
+    intro.remove();
+  }
 
   /* ---------- 2. Curseur contextuel ---------- */
   const cursor = document.querySelector(".cursor");
   if (cursor && finePointer && !reduced) {
-    document.body.classList.add("cursor-on");
-    const label = cursor.querySelector(".cursor-label");
+    let ring = cursor.querySelector(".cursor-ring");
+    let dot = cursor.querySelector(".cursor-dot");
+    let label = cursor.querySelector(".cursor-label");
+    if (!label) {
+      label = document.createElement("span");
+      label.className = "cursor-label";
+      cursor.appendChild(label);
+    }
+    if (!ring) {
+      ring = document.createElement("span");
+      ring.className = "cursor-ring";
+      cursor.insertBefore(ring, label);
+    }
+    if (!dot) {
+      dot = document.createElement("span");
+      dot.className = "cursor-dot";
+      cursor.insertBefore(dot, label);
+    }
+    let x = 0, y = 0, targetX = 0, targetY = 0, frame = 0, positioned = false;
+    const followPointer = () => {
+      frame = 0;
+      x += (targetX - x) * 0.22;
+      y += (targetY - y) * 0.22;
+      cursor.style.transform = `translate3d(${x}px,${y}px,0)`;
+      if (Math.abs(targetX - x) > 0.2 || Math.abs(targetY - y) > 0.2) {
+        frame = requestAnimationFrame(followPointer);
+      }
+    };
     addEventListener("pointermove", (e) => {
-      cursor.style.transform = `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
+      document.body.classList.add("cursor-on");
+      cursor.classList.remove("is-out");
+      targetX = e.clientX; targetY = e.clientY;
+      if (!positioned) {
+        x = targetX; y = targetY; positioned = true;
+        cursor.style.transform = `translate3d(${x}px,${y}px,0)`;
+      } else if (!frame) {
+        frame = requestAnimationFrame(followPointer);
+      }
       const t = e.target instanceof Element ? e.target : null;
       const zone = t?.closest("[data-cursor]");
       const link = t?.closest("a,button");
-      cursor.classList.toggle("link", !!link && !zone);
-      if (zone) { label.textContent = zone.dataset.cursor || "VOIR"; cursor.classList.add("badge"); cursor.classList.remove("link"); }
-      else cursor.classList.remove("badge");
+      const field = t?.closest("input,textarea,select,[contenteditable='true']");
+      cursor.classList.toggle("is-field", !!field);
+      cursor.classList.toggle("is-link", !!link && !zone && !field);
+      cursor.classList.toggle("is-choice", !!zone && !field);
+      if (zone && !field) {
+        label.textContent = document.documentElement.lang === "en"
+          ? zone.dataset.cursorEn || "OPEN"
+          : zone.dataset.cursor || "VOIR";
+      }
     }, { passive: true });
-    document.documentElement.addEventListener("pointerleave", () => { cursor.style.opacity = "0"; });
-    document.documentElement.addEventListener("pointerenter", () => { cursor.style.opacity = ""; });
+    document.documentElement.addEventListener("pointerleave", () => {
+      cursor.classList.add("is-out");
+      document.body.classList.remove("cursor-on");
+    });
   }
 
   /* ---------- 3. Boutons magnétiques ---------- */
@@ -38,13 +102,55 @@
         const r = el.getBoundingClientRect();
         const dx = Math.max(-6, Math.min(6, (e.clientX - (r.left + r.width / 2)) * 0.12));
         const dy = Math.max(-6, Math.min(6, (e.clientY - (r.top + r.height / 2)) * 0.12));
-        el.style.transform = `translate(${dx}px,${dy}px)`;
+        el.style.setProperty("--magnet-x", `${dx}px`);
+        el.style.setProperty("--magnet-y", `${dy}px`);
       });
-      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+      el.addEventListener("pointerleave", () => {
+        el.style.removeProperty("--magnet-x");
+        el.style.removeProperty("--magnet-y");
+      });
     });
   }
 
-  /* ---------- 5. Compteurs animés ---------- */
+  /* ---------- 4. Mouvement discret du portrait ---------- */
+  const portrait = document.querySelector(".portrait .ph");
+  if (portrait && finePointer && !reduced) {
+    portrait.addEventListener("pointermove", (event) => {
+      const bounds = portrait.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      portrait.style.setProperty("--photo-tilt-x", `${-y * 5}deg`);
+      portrait.style.setProperty("--photo-tilt-y", `${x * 5}deg`);
+      portrait.style.setProperty("--photo-pan-x", `${-x * 8}px`);
+      portrait.style.setProperty("--photo-pan-y", `${-y * 8}px`);
+      portrait.style.setProperty("--photo-lift", "-3px");
+    }, { passive: true });
+    portrait.addEventListener("pointerleave", () => {
+      portrait.style.removeProperty("--photo-tilt-x");
+      portrait.style.removeProperty("--photo-tilt-y");
+      portrait.style.removeProperty("--photo-pan-x");
+      portrait.style.removeProperty("--photo-pan-y");
+      portrait.style.removeProperty("--photo-lift");
+    });
+  }
+
+  /* ---------- 5. Révélations au défilement ---------- */
+  const revealItems = document.querySelectorAll(".reveal");
+  if (!reduced && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("motion-ready");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -24px 0px" });
+    revealItems.forEach((element) => revealObserver.observe(element));
+  } else {
+    revealItems.forEach((element) => element.classList.add("in"));
+  }
+
+  /* ---------- 6. Compteurs animés ---------- */
   const cio = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
       if (!en.isIntersecting) return;
@@ -157,25 +263,90 @@
   document.querySelectorAll(".lang button").forEach((b) =>
     b.addEventListener("click", () => applyLang(b.dataset.lang)));
 
-  /* ---------- 10. Formulaire de contact (Formspree) ---------- */
-  const form = document.querySelector("#contact-form");
-  if (form) {
-    const msg = form.querySelector(".form-msg");
+  /* Vague des titres : le libellé complet reste disponible aux lecteurs d'écran. */
+  if (finePointer && !reduced) {
+    function initTitleWaves() {
+      document.querySelectorAll("main h1, main h2, main h3").forEach((heading) => {
+        heading.classList.add("titre-vague");
+        heading.querySelectorAll(".titre-vague__lettre").forEach((letter) =>
+          letter.replaceWith(document.createTextNode(letter.textContent || "")));
+
+        const labelContent = heading.cloneNode(true);
+        labelContent.querySelectorAll("[aria-hidden='true']").forEach((element) => element.remove());
+        const label = labelContent.textContent.replace(/\s+/g, " ").trim();
+        if (!label) return;
+        if (!heading.hasAttribute("aria-label") || heading.dataset.titreVagueLabel) {
+          heading.setAttribute("aria-label", label);
+          heading.dataset.titreVagueLabel = "true";
+        }
+
+        let index = 0;
+        const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+        const textNodes = [];
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          if (node.nodeValue.trim() && !node.parentElement?.closest("svg,[aria-hidden='true']")) {
+            textNodes.push(node);
+          }
+        }
+        textNodes.forEach((node) => {
+          const fragment = document.createDocumentFragment();
+          (node.nodeValue.match(/\s+|[^\s]+/gu) || []).forEach((part) => {
+            if (/^\s+$/u.test(part)) {
+              fragment.appendChild(document.createTextNode(part));
+              return;
+            }
+            const word = document.createElement("span");
+            word.className = "titre-vague__mot";
+            Array.from(part).forEach((character) => {
+              const letter = document.createElement("span");
+              letter.className = "titre-vague__lettre";
+              letter.setAttribute("aria-hidden", "true");
+              letter.style.setProperty("--titre-index", String(index++));
+              letter.textContent = character;
+              word.appendChild(letter);
+            });
+            fragment.appendChild(word);
+          });
+          node.replaceWith(fragment);
+        });
+      });
+    }
+
+    initTitleWaves();
+    document.querySelectorAll(".lang button").forEach((button) =>
+      button.addEventListener("click", () => requestAnimationFrame(initTitleWaves)));
+  }
+
+  /* ---------- 10. Formulaires de contact (Formspree) ---------- */
+  document.querySelectorAll("#contact-form, #pj-contact-form").forEach((form) => {
+    const msg = form.querySelector(".form-msg, .pj-form-msg");
+    const statusClass = form.id === "pj-contact-form" ? "pj-form-msg" : "form-msg";
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (msg) { msg.textContent = "…"; msg.className = "form-msg"; }
+      if (msg) { msg.textContent = "…"; msg.className = statusClass; }
       const btn = form.querySelector('[type="submit"]');
       if (btn) btn.disabled = true;
       try {
         const res = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
         if (!res.ok) throw new Error("send failed");
-        if (msg) { msg.textContent = msg.dataset.ok || "Message envoyé. Je vous réponds vite."; msg.classList.add("ok"); }
+        if (msg) {
+          msg.textContent = form.id === "pj-contact-form"
+            ? (document.documentElement.lang === "en" ? DICT["pj.formSuccess"] : "Demande envoyée. Je vous réponds bientôt.")
+            : msg.dataset.ok || "Message envoyé. Je vous réponds vite.";
+          msg.classList.add("ok");
+        }
         form.reset();
       } catch (err) {
-        if (msg) { msg.textContent = msg.dataset.ko || "Échec de l'envoi. Écrivez-moi directement par email."; msg.classList.add("err"); }
+        if (msg) {
+          msg.textContent = form.id === "pj-contact-form"
+            ? (document.documentElement.lang === "en" ? DICT["pj.formError"] : "La demande n'a pas pu être envoyée. Contactez-moi par WhatsApp ou e-mail.")
+            : msg.dataset.ko || "Échec de l'envoi. Écrivez-moi directement par email.";
+          msg.classList.add("err");
+        }
       } finally { if (btn) btn.disabled = false; }
     });
-  }
+  });
 
   /* ---------- 11. Horloge d'Abidjan ---------- */
   const clock = document.querySelector("#clock");
@@ -249,64 +420,135 @@
     }, { passive: true });
   }
 
-  /* Sélecteur "Et votre projet ?" */
-  const cards = [...document.querySelectorAll(".pj-card")];
-  const pills = [...document.querySelectorAll(".pj-pill")];
-  const go = document.querySelector("#pj-go");
-  const wa = document.querySelector("#pj-wa");
-  if (!cards.length) return;
-  const langKey = () => (document.documentElement.lang === "en" ? "labelEn" : "labelFr");
+  /* Parcours de prise de contact : besoin, fonctions, délai, coordonnées */
+  const wizard = document.querySelector("#pj-wizard");
+  if (!wizard) return;
+  const cards = [...wizard.querySelectorAll(".pj-card[data-type]")];
+  const modules = [...wizard.querySelectorAll(".pj-module")];
+  const pills = [...wizard.querySelectorAll(".pj-pill[data-delay]")];
+  const panels = [...wizard.querySelectorAll("[data-pj-step]")];
+  const progressItems = [...wizard.querySelectorAll(".pj-progress li")];
+  const wa = wizard.querySelector("#pj-wa");
+  const requestForm = wizard.querySelector("#pj-contact-form");
+  const isEnglish = () => document.documentElement.lang === "en";
+  const labelOf = (button) => button?.dataset[isEnglish() ? "labelEn" : "labelFr"] || "";
+  const selectedType = () => cards.find((button) => button.classList.contains("selected"));
+  const selectedDelay = () => pills.find((button) => button.classList.contains("selected"));
+  const selectedModules = () => modules.filter((button) => button.classList.contains("selected"));
+  let currentStep = 0;
 
-  function pick(list, btn) {
-    list.forEach((b) => { b.classList.remove("selected"); b.setAttribute("aria-pressed", "false"); });
-    btn.classList.add("selected");
-    btn.setAttribute("aria-pressed", "true");
-    syncWa();
-    /* Étape 2 : se déplie quand un type est choisi */
-    const step2 = document.querySelector("#pj-step2");
-    if (step2 && !step2.classList.contains("open")) {
-      step2.classList.add("open");
-      step2.setAttribute("aria-hidden", "false");
-      setTimeout(() => step2.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "nearest" }), 120);
+  function selection() {
+    return {
+      type: labelOf(selectedType()),
+      modules: selectedModules().map(labelOf),
+      delay: labelOf(selectedDelay())
+    };
+  }
+
+  function updateSummary() {
+    const data = selection();
+    const undecided = isEnglish() ? "To be discussed" : "À préciser ensemble";
+    const summaryType = wizard.querySelector("#pj-summary-type");
+    const summaryModules = wizard.querySelector("#pj-summary-modules");
+    const summaryDelay = wizard.querySelector("#pj-summary-delay");
+    if (summaryType) summaryType.textContent = data.type;
+    if (summaryModules) summaryModules.textContent = data.modules.length ? data.modules.join(", ") : undecided;
+    if (summaryDelay) summaryDelay.textContent = data.delay;
+    if (requestForm) {
+      const features = data.modules.length ? data.modules.join(", ") : undecided;
+      const subject = requestForm.querySelector("#pj-subject");
+      const typeField = requestForm.querySelector("#pj-type-field");
+      const featuresField = requestForm.querySelector("#pj-features-field");
+      const timelineField = requestForm.querySelector("#pj-timeline-field");
+      if (subject) subject.value = (isEnglish() ? "Project request: " : "Demande de projet : ") + data.type;
+      if (typeField) typeField.value = data.type;
+      if (featuresField) featuresField.value = features;
+      if (timelineField) timelineField.value = data.delay;
     }
   }
-  cards.forEach((b) => b.addEventListener("click", () => pick(cards, b)));
-  pills.forEach((b) => b.addEventListener("click", () => pick(pills, b)));
 
-  function selectionText() {
-    const k = langKey(), en = document.documentElement.lang === "en";
-    const t = document.querySelector(".pj-card.selected");
-    const d = document.querySelector(".pj-pill.selected");
-    const parts = [];
-    if (t) parts.push(t.dataset[k]);
-    if (d) parts.push((en ? "timeline: " : "délai : ") + d.dataset[k]);
-    return parts.join(" — ");
-  }
-  function syncWa() {
+  function updateWhatsApp() {
     if (!wa) return;
-    const txt = selectionText();
-    const base = "https://wa.me/2250161506296";
-    wa.href = txt
-      ? base + "?text=" + encodeURIComponent((document.documentElement.lang === "en" ? "Hello, I have a project: " : "Bonjour, j'ai un projet : ") + txt)
-      : base;
+    const data = selection();
+    const en = isEnglish();
+    const parts = [];
+    if (data.type) parts.push((en ? "Type: " : "Type : ") + data.type);
+    if (data.modules.length) parts.push((en ? "Functions: " : "Fonctions : ") + data.modules.join(", "));
+    if (data.delay) parts.push((en ? "Preferred timeline: " : "Délai souhaité : ") + data.delay);
+    const introText = en ? "Hello, I would like to discuss a web project." : "Bonjour N'Goran, j'aimerais discuter d'un projet web.";
+    wa.href = "https://wa.me/2250161506296?text=" + encodeURIComponent([introText, ...parts].join("\n"));
   }
-  if (go) go.addEventListener("click", () => {
-    const t = document.querySelector(".pj-card.selected");
-    const grid = document.querySelector(".pj-grid");
-    if (!t) {
-      if (grid && !reduced) { grid.classList.remove("nudge"); void grid.offsetWidth; grid.classList.add("nudge"); }
-      return;
+
+  function showStep(step) {
+    if (step < 0 || step >= panels.length) return;
+    currentStep = step;
+    panels.forEach((panel, index) => { panel.hidden = index !== step; });
+    progressItems.forEach((item, index) => {
+      item.classList.toggle("active", index === step);
+      item.classList.toggle("complete", index < step);
+      if (index === step) item.setAttribute("aria-current", "step");
+      else item.removeAttribute("aria-current");
+    });
+    if (step === 3) updateSummary();
+    updateWhatsApp();
+    const heading = panels[step].querySelector(".pj-stepname");
+    heading?.focus({ preventScroll: true });
+    panels[step].scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    const live = wizard.querySelector("#pj-live");
+    if (live) live.textContent = isEnglish() ? `Step ${step + 1} of 4` : `Étape ${step + 1} sur 4`;
+  }
+
+  cards.forEach((button) => button.addEventListener("click", () => {
+    const changed = selectedType()?.dataset.type !== button.dataset.type;
+    cards.forEach((card) => {
+      const selected = card === button;
+      card.classList.toggle("selected", selected);
+      card.setAttribute("aria-pressed", String(selected));
+    });
+    if (changed) {
+      modules.forEach((module) => {
+        module.classList.remove("selected");
+        module.setAttribute("aria-pressed", "false");
+      });
     }
-    const en = document.documentElement.lang === "en";
-    const input = document.querySelector('#contact-form input[name="subject"]');
-    if (input) input.value = (en ? "Project: " : "Projet : ") + selectionText();
-    const contact = document.querySelector("#contact");
-    if (contact) contact.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
-    setTimeout(() => document.querySelector('#contact-form textarea')?.focus({ preventScroll: true }), 900);
+    wizard.querySelectorAll(".pj-module-set").forEach((set) => {
+      set.hidden = set.dataset.moduleSet !== button.dataset.type;
+    });
+    const next = wizard.querySelector("#pj-next-type");
+    if (next) next.disabled = false;
+    updateWhatsApp();
+  }));
+  modules.forEach((button) => button.addEventListener("click", () => {
+    const selected = button.classList.toggle("selected");
+    button.setAttribute("aria-pressed", String(selected));
+    updateWhatsApp();
+  }));
+  pills.forEach((button) => button.addEventListener("click", () => {
+    pills.forEach((pill) => {
+      const selected = pill === button;
+      pill.classList.toggle("selected", selected);
+      pill.setAttribute("aria-pressed", String(selected));
+    });
+    const next = wizard.querySelector("#pj-next-delay");
+    if (next) next.disabled = false;
+    updateWhatsApp();
+  }));
+
+  wizard.querySelector("#pj-next-type")?.addEventListener("click", () => showStep(1));
+  wizard.querySelector('[data-pj-next="2"]')?.addEventListener("click", () => showStep(2));
+  wizard.querySelector("#pj-next-delay")?.addEventListener("click", () => showStep(3));
+  wizard.querySelectorAll("[data-pj-back]").forEach((button) =>
+    button.addEventListener("click", () => showStep(Number(button.dataset.pjBack))));
+
+  document.querySelectorAll(".lang button").forEach((button) => {
+    button.addEventListener("click", () => window.setTimeout(() => {
+      updateSummary();
+      updateWhatsApp();
+      const live = wizard.querySelector("#pj-live");
+      if (live) live.textContent = isEnglish() ? `Step ${currentStep + 1} of 4` : `Étape ${currentStep + 1} sur 4`;
+    }, 120));
   });
-  document.querySelectorAll(".lang button").forEach((b) =>
-    b.addEventListener("click", () => setTimeout(syncWa, 120)));
-  syncWa();
+  updateWhatsApp();
 })();
 
 /* ============================================================
@@ -323,17 +565,27 @@
   const prev = sc.querySelector("#sc-prev");
   const next = sc.querySelector("#sc-next");
   const count = sc.querySelector("#sc-i");
+  const viewport = sc.querySelector(".sc-viewport");
   const n = slides.length;
   let i = 0, timer = null;
+  const fitActiveSlide = () => {
+    if (slides[i]) viewport.style.height = `${slides[i].offsetHeight}px`;
+  };
+  if ("ResizeObserver" in window) {
+    const slideObserver = new ResizeObserver(fitActiveSlide);
+    slides.forEach((slide) => slideObserver.observe(slide));
+  }
 
   function go(k, dir) {
     const ni = (k + n) % n;
     dir = dir || (ni > i || (i === n - 1 && ni === 0) ? 1 : -1);
     i = ni;
     track.style.transform = "translateX(-" + i * 100 + "%)";
+    fitActiveSlide();
     dots.forEach((d, j) => {
       d.classList.toggle("active", j === i);
       d.setAttribute("aria-selected", j === i ? "true" : "false");
+      d.tabIndex = j === i ? 0 : -1;
     });
     if (count) count.textContent = String(i + 1).padStart(2, "0");
     slides.forEach((s, j) => {
@@ -343,6 +595,8 @@
       if ("inert" in s) s.inert = !on;
       const link = s.querySelector(".sc-link");
       if (link) link.tabIndex = on ? 0 : -1;
+      const image = s.querySelector("img");
+      if (on && image) image.loading = "eager";
     });
   }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
@@ -359,14 +613,35 @@
     if (e.key === "ArrowLeft") { go(i - 1, -1); auto(); }
     if (e.key === "ArrowRight") { go(i + 1, 1); auto(); }
   });
-  let tx = null;
-  sc.addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
-  sc.addEventListener("touchend", (e) => {
-    if (tx === null) return;
-    const dx = e.changedTouches[0].clientX - tx;
-    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
-    tx = null; auto();
-  }, { passive: true });
+  let swipeStart = null, suppressClick = false;
+  viewport.addEventListener("pointerdown", (e) => {
+    if (!e.isPrimary || (e.pointerType === "mouse" && e.button !== 0)) return;
+    swipeStart = { x: e.clientX, y: e.clientY, id: e.pointerId };
+    stop();
+  });
+  addEventListener("pointerup", (e) => {
+    if (!swipeStart || e.pointerId !== swipeStart.id) return;
+    const dx = e.clientX - swipeStart.x;
+    const dy = e.clientY - swipeStart.y;
+    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      go(i + (dx < 0 ? 1 : -1));
+      suppressClick = true;
+      setTimeout(() => { suppressClick = false; }, 400);
+    }
+    swipeStart = null;
+    auto();
+  });
+  addEventListener("pointercancel", () => {
+    swipeStart = null;
+    auto();
+  });
+  sc.addEventListener("click", (e) => {
+    if (!suppressClick) return;
+    e.preventDefault();
+    e.stopPropagation();
+    suppressClick = false;
+  }, true);
+  viewport.addEventListener("dragstart", (e) => e.preventDefault());
 
   go(0, 1); auto();
 })();

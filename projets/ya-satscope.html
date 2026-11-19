@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YA SatScope — Étude de cas | Portfolio N'Goran Junior</title>
+<meta name="description" content="YA SatScope : projet d'équipe réalisé pendant un stage, autour du suivi orbital et de la réception SDR. Étude de cas de N'Goran Junior.">
+<meta name="theme-color" content="#F5F8FA">
+<link rel="icon" type="image/svg+xml" href="../assets/images/logo-nj.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<div class="cursor" aria-hidden="true"><span class="cursor-label">VOIR</span></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html" aria-label="N'Goran Junior, accueil">
+      <img src="../assets/images/logo-nj.svg" alt="NJ" width="44" height="44">
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="../index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="../pages/projets.html" data-i18n="nav.projects" aria-current="page">Projets</a></li>
+      <li><a href="../pages/parcours.html" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="../pages/a-propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="../pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <div class="lang" role="group" aria-label="Langue">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-line" data-magnet href="../assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" style="padding:.8rem 1.3rem" data-i18n="nav.cv">CV</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-hero" style="padding-bottom:0">
+    <a class="back-link" href="../pages/projets.html" data-i18n="back.projects">← Tous les projets</a>
+    <header class="case-head">
+      <p class="kicker" data-i18n="ys.kicker">Étude de cas · Projet d'équipe en stage</p>
+      <h1>YA SatScope</h1>
+      <p class="lead" data-i18n="ys.lead">Logiciel Windows développé en équipe pour le suivi satellitaire et l'exploration de la réception SDR. Ma participation a porté sur les parties suivi des satellites et spectre, encore expérimentales.</p>
+      <dl class="case-meta">
+        <div><dt data-i18n="c.type.l">Type</dt><dd data-i18n="ys.type">Projet d'équipe · Stage</dd></div>
+        <div><dt data-i18n="c.stack.l">Technologies</dt><dd>Python · PySide6 · Skyfield · SQLite · NumPy</dd></div>
+        <div><dt data-i18n="c.status.l">Statut</dt><dd data-i18n="ys.status">Prototype · validation matérielle partielle</dd></div>
+      </dl>
+    </header>
+  </div>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <figure class="case-cover reveal">
+        <img src="../assets/images/ya-satscope/01-accueil.png" alt="Accueil de YA SatScope : état de la station, catalogue orbital et premiers pas" data-alt-en="YA SatScope home screen with station status, orbital catalogue and setup steps" width="1600" height="1000" fetchpriority="high">
+      </figure>
+
+      <div class="case-grid">
+        <div class="case-block reveal">
+          <h2 data-i18n="ys.contextTitle">Contexte</h2>
+          <p data-i18n="ys.context">YA SatScope est une application de bureau conçue en équipe de trois pendant mon stage. Elle rassemble le suivi orbital, des outils de réception radio SDR et l'organisation des observations dans une interface Windows.</p>
+        </div>
+        <div class="case-block reveal" style="--d:.1s">
+          <h2 data-i18n="ys.roleTitle">Ma contribution</h2>
+          <p data-i18n="ys.role">J'ai contribué aux volets du suivi satellitaire et du spectre au sein de l'équipe. Je débute encore dans ces domaines : je présente ma participation comme un apprentissage en équipe, pas comme la création de l'ensemble du logiciel.</p>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block reveal">
+          <h2 data-i18n="ys.featuresTitle">Fonctions du logiciel d'équipe</h2>
+          <ul>
+            <li data-i18n="ys.feature1">Suivre les satellites depuis un catalogue orbital local : carte, trajectoire, prévisions de passages, agenda et fiches techniques.</li>
+            <li data-i18n="ys.feature2">Explorer la réception SDR : état du récepteur, spectre et waterfall, puis enregistrement ou relecture de fichiers IQ.</li>
+            <li data-i18n="ys.feature3">Organiser les observations dans des projets locaux, préparer des rapports PDF et lancer le décodage avec SatDump quand il est installé.</li>
+            <li data-i18n="ys.feature4">Consulter des observations du réseau SatNOGS avec une connexion Internet.</li>
+          </ul>
+        </div>
+        <div class="case-block reveal" style="--d:.1s">
+          <h2 data-i18n="ys.validationTitle">Vérifications documentées</h2>
+          <p data-i18n="ys.validation">Le rapport de tests du 4 novembre 2026 consigne 156 tests automatisés réussis. Il décrit aussi des essais du récepteur Pluto et le décodage d'un signal de référence synthétique.</p>
+          <p data-i18n="ys.validationLimit">La réception et le décodage d'un satellite réel, ainsi que plusieurs essais matériels et de longue durée, restent à valider.</p>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block reveal">
+          <h2 data-i18n="ys.stackTitle">Outils du projet d'équipe</h2>
+          <ul>
+            <li data-i18n="ys.stack1">Python et PySide6 pour l'application Windows.</li>
+            <li data-i18n="ys.stack2">Skyfield et SGP4 pour les calculs orbitaux.</li>
+            <li data-i18n="ys.stack3">NumPy, SciPy et PyQtGraph pour les traitements et l'affichage du signal.</li>
+            <li data-i18n="ys.stack4">SQLite pour le stockage local ; SatDump comme outil externe de décodage.</li>
+          </ul>
+        </div>
+        <div class="case-block reveal" style="--d:.1s">
+          <h2 data-i18n="ys.levelTitle">Mon niveau</h2>
+          <p data-i18n="ys.level">Je suis débutant sur ces technologies. La liste décrit les outils du projet collectif, pas une maîtrise individuelle de chacun. Ma participation s'est concentrée sur les parties satellites et spectre, encore expérimentales.</p>
+        </div>
+      </div>
+
+      <aside class="disclaimer reveal">
+        <strong data-i18n="ys.captureNoteTitle">À propos des captures</strong>
+        <span data-i18n="ys.captureNote">Les 15 captures proviennent de l'application réelle et ont été réalisées le 18 novembre 2026 avec Abidjan comme station d'observation. Aucun SDR n'était connecté lors de cette série : spectre vide, absence de signal et état SatDump indisponible sont montrés tels quels, sans données inventées.</span>
+      </aside>
+
+      <h2 class="case-gallery-title" data-i18n="ys.galleryTitle">Les écrans de l'application</h2>
+      <div class="case-gallery">
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/02-suivi-orbital-carte.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/02-suivi-orbital-carte.png" alt="Suivi orbital : carte du monde avec trajectoire et position de l'ISS" data-alt-en="Orbital tracking map showing the ISS trajectory and position" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot02Title">Suivi orbital · carte</strong><span data-i18n="ys.shot02Text">Carte, trajectoire et télémétrie du satellite sélectionné.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/03-suivi-orbital-passages.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/03-suivi-orbital-passages.png" alt="Prévisions de passages de l'ISS au-dessus de la station d'observation" data-alt-en="ISS pass predictions over the observation station" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot03Title">Suivi orbital · passages</strong><span data-i18n="ys.shot03Text">Heures de lever, culmination et coucher prévues.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/04-suivi-orbital-agenda.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/04-suivi-orbital-agenda.png" alt="Agenda chronologique des prochains passages de satellites" data-alt-en="Chronological schedule of upcoming satellite passes" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot04Title">Suivi orbital · agenda</strong><span data-i18n="ys.shot04Text">Passages à venir rassemblés par heure.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/05-suivi-orbital-fiche-technique.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/05-suivi-orbital-fiche-technique.png" alt="Fiche technique de l'ISS avec les origines des données affichées" data-alt-en="ISS technical sheet showing the source of displayed data" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot05Title">Suivi orbital · fiche technique</strong><span data-i18n="ys.shot05Text">Identification, orbite et origine des valeurs affichées.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/06-spectre.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/06-spectre.png" alt="Page Spectre, sans signal parce qu'aucun récepteur SDR n'était connecté" data-alt-en="Spectrum page without a signal because no SDR receiver was connected" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot06Title">Spectre</strong><span data-i18n="ys.shot06Text">Interface de spectre, waterfall, écoute et fichiers IQ ; aucun SDR connecté lors de la capture.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/07-environnement-radio.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/07-environnement-radio.png" alt="Scanner d'environnement radio avec bandes et préréglages" data-alt-en="Radio environment scanner with frequency bands and presets" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot07Title">Environnement radio</strong><span data-i18n="ys.shot07Text">Bandes à balayer et réglages du scanner ; aucune émission n'est simulée.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/08-recepteur.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/08-recepteur.png" alt="Réglages et état de connexion du récepteur SDR" data-alt-en="SDR receiver settings and connection status" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot08Title">Récepteur SDR</strong><span data-i18n="ys.shot08Text">Fréquence, débit, gain et état du matériel raccordé.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/09-decodage.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/09-decodage.png" alt="Page Décodage indiquant que SatDump est absent dans l'environnement de capture" data-alt-en="Decoding page showing SatDump unavailable in the capture environment" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot09Title">Décodage</strong><span data-i18n="ys.shot09Text">Sélection d'enregistrement et pipeline ; SatDump était absent sur l'environnement de capture.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/10-bibliotheque.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/10-bibliotheque.png" alt="Bibliothèque des enregistrements et décodages, vide sur cette installation" data-alt-en="Recording and decoding library, empty in this installation" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot10Title">Bibliothèque</strong><span data-i18n="ys.shot10Text">Recherche et aperçu des fichiers locaux ; bibliothèque vide sur cette installation.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/11-projets.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/11-projets.png" alt="Gestion des projets d'observation dans YA SatScope" data-alt-en="Observation project management in YA SatScope" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot11Title">Projets</strong><span data-i18n="ys.shot11Text">Regrouper un satellite, des fichiers et des observations.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/12-parametres-station-donnees.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/12-parametres-station-donnees.png" alt="Paramètres de station configurés pour Abidjan et état du catalogue orbital" data-alt-en="Station settings for Abidjan and orbital catalogue status" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot12Title">Station et données</strong><span data-i18n="ys.shot12Text">Emplacement d'Abidjan et catalogue local de 7 135 satellites.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/13-guide.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/13-guide.png" alt="Guide intégré de YA SatScope présentant les étapes de démarrage" data-alt-en="YA SatScope built-in guide with the setup steps" width="640" height="560" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot13Title">Guide intégré</strong><span data-i18n="ys.shot13Text">Aide accessible depuis l'application avec six étapes de prise en main.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/14-satnogs.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/14-satnogs.png" alt="Dialogue SatNOGS pendant la recherche d'observations réseau" data-alt-en="SatNOGS dialog while searching for network observations" width="900" height="520" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot14Title">SatNOGS</strong><span data-i18n="ys.shot14Text">Recherche réseau en cours ; aucun résultat n'a été ajouté artificiellement.</span></figcaption>
+          </a>
+        </figure>
+        <figure class="case-shot reveal">
+          <a href="../assets/images/ya-satscope/15-suivi-orbital-au-dessus-de-moi.png" target="_blank" rel="noopener">
+            <img src="../assets/images/ya-satscope/15-suivi-orbital-au-dessus-de-moi.png" alt="Vue des satellites actuellement au-dessus de l'horizon d'Abidjan" data-alt-en="View of satellites currently above the horizon in Abidjan" width="1600" height="1000" loading="lazy" decoding="async">
+            <figcaption><strong data-i18n="ys.shot15Title">Satellites au-dessus de moi</strong><span data-i18n="ys.shot15Text">Vue filtrée selon la station d'observation configurée à Abidjan.</span></figcaption>
+          </a>
+        </figure>
+      </div>
+
+      <a class="next-case reveal" href="../pages/projets.html" data-cursor="VOIR">
+        <div><span data-i18n="ys.backLabel">Retour à la sélection</span><b data-i18n="ys.backTitle">Tous les projets</b></div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-cta">
+    <p class="kicker" data-i18n="ft.kicker">Prêt quand vous l'êtes</p>
+    <h2><span data-i18n="ft.t1">Travaillons</span> <em data-i18n="ft.t2">ensemble.</em></h2>
+    <a class="btn-giant" data-magnet data-cursor="GO" href="../pages/contact.html"><span data-i18n="ft.cta">Démarrer un projet</span><span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="wrap footer-in">
+    <span>N'Goran Junior · <span data-i18n="foot.role">Étudiant en informatique</span> · Abidjan</span>
+    <nav><a href="../pages/certificats.html" data-i18n="foot.certs">Certificats</a><a href="https://github.com/njdev154" target="_blank" rel="noopener">GitHub ↗</a></nav>
+    <button class="to-top" type="button" data-i18n="foot.top">Haut ↑</button>
+    <span>© <span id="year">2026</span></span>
+  </div>
+</footer>
+
+<script>
+window.PF_TITLE_FR = "YA SatScope — Étude de cas | Portfolio N'Goran Junior";
+window.PF_TITLE_EN = "YA SatScope — Case study | N'Goran Junior's portfolio";
+window.PF_PAGE_EN = {
+  "ys.kicker": "Case study · Team project during internship",
+  "ys.lead": "A Windows desktop application built by a team to explore satellite tracking and SDR reception. My contribution covered satellite tracking and spectrum features, which remain experimental.",
+  "ys.type": "Team project · Internship",
+  "ys.status": "Prototype · hardware validation in progress",
+  "ys.contextTitle": "Context",
+  "ys.context": "YA SatScope is a desktop application built by a team of three during my internship. It brings orbital tracking, SDR radio-reception tools and observation records together in a Windows interface.",
+  "ys.roleTitle": "My contribution",
+  "ys.role": "I contributed to the satellite-tracking and spectrum areas as part of the team. I am still a beginner in these fields: I describe my involvement as team-based learning, not as sole authorship of the software.",
+  "ys.featuresTitle": "Team software features",
+  "ys.feature1": "Track satellites from a local orbital catalogue: map, trajectory, pass predictions, schedule and technical sheets.",
+  "ys.feature2": "Explore SDR reception: receiver status, spectrum and waterfall, then record or replay IQ files.",
+  "ys.feature3": "Organize observations in local projects, prepare PDF reports and run decoding with SatDump when installed.",
+  "ys.feature4": "Consult observations from the SatNOGS network with an internet connection.",
+  "ys.stackTitle": "Tools used by the team",
+  "ys.stack1": "Python and PySide6 for the Windows application.",
+  "ys.stack2": "Skyfield and SGP4 for orbital calculations.",
+  "ys.stack3": "NumPy, SciPy and PyQtGraph for signal processing and display.",
+  "ys.stack4": "SQLite for local storage; SatDump as an external decoding tool.",
+  "ys.levelTitle": "My current level",
+  "ys.level": "I am a beginner with these technologies. This list describes the team's stack, not individual mastery of every tool. My contribution focused on the satellite and spectrum areas, which remain experimental.",
+  "ys.validationTitle": "Documented checks",
+  "ys.validation": "The November 4, 2026 test report records 156 automated tests passing. It also documents Pluto receiver tests and decoding of a synthetic reference signal.",
+  "ys.validationLimit": "Reception and decoding of a real satellite, along with several hardware and long-duration tests, still need validation.",
+  "ys.captureNoteTitle": "About these screenshots",
+  "ys.captureNote": "All 15 captures come from the real application and were made on November 18, 2026, with Abidjan as the observation station. No SDR was connected during this capture session: the empty spectrum, lack of detected signal and unavailable SatDump state are shown as they were, without fabricated data.",
+  "ys.galleryTitle": "Application screens",
+  "ys.shot02Title": "Orbital tracking · map",
+  "ys.shot02Text": "Map, trajectory and telemetry for the selected satellite.",
+  "ys.shot03Title": "Orbital tracking · passes",
+  "ys.shot03Text": "Predicted rise, culmination and set times.",
+  "ys.shot04Title": "Orbital tracking · schedule",
+  "ys.shot04Text": "Upcoming passes listed by time.",
+  "ys.shot05Title": "Orbital tracking · technical sheet",
+  "ys.shot05Text": "Satellite identity, orbit and sources of displayed values.",
+  "ys.shot06Title": "Spectrum",
+  "ys.shot06Text": "Spectrum, waterfall, audio and IQ-file controls; no SDR was connected for this capture.",
+  "ys.shot07Title": "Radio environment",
+  "ys.shot07Text": "Frequency bands and scanner settings; no emission is simulated.",
+  "ys.shot08Title": "SDR receiver",
+  "ys.shot08Text": "Frequency, sample rate, gain and connected-device status.",
+  "ys.shot09Title": "Decoding",
+  "ys.shot09Text": "Recording and pipeline selection; SatDump was unavailable in the capture environment.",
+  "ys.shot10Title": "Library",
+  "ys.shot10Text": "Search and preview of local files; the library was empty in this installation.",
+  "ys.shot11Title": "Projects",
+  "ys.shot11Text": "Group a satellite, files and observations.",
+  "ys.shot12Title": "Station and data",
+  "ys.shot12Text": "Abidjan location and local catalogue of 7,135 satellites.",
+  "ys.shot13Title": "Built-in guide",
+  "ys.shot13Text": "In-app help with six setup steps.",
+  "ys.shot14Title": "SatNOGS",
+  "ys.shot14Text": "Network search in progress; no results were fabricated.",
+  "ys.shot15Title": "Satellites above me",
+  "ys.shot15Text": "View filtered for the observation station set to Abidjan.",
+  "ys.backLabel": "Back to the selection",
+  "ys.backTitle": "All projects",
+  "ft.kicker": "Ready when you are",
+  "ft.t1": "Let's work", "ft.t2": "together.",
+  "ft.cta": "Start a project"
+};
+</script>
+<script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -2,25 +2,35 @@
 
 Portfolio statique (HTML, CSS et JavaScript vanilla, sans framework) d'un étudiant en
 Informatique Développeur d'Applications à Abidjan. Direction éditoriale claire,
-captures de projets affichées sans zoom et animations réduites pour privilégier
-la lisibilité et la rapidité : carrousel, compteurs, boutons et transitions.
+captures cadrées selon leurs proportions, carrousel accessible au clavier, à la
+souris et au tactile, et animations réduites pour privilégier la lisibilité.
 
 ## Structure
 
-- `index.html` : accueil (hero, marquee technos, projets + filtres, marquee géant,
-  matrice de compétences, parcours, à propos, contact)
-- `pages/projets.html` : les 6 projets + filtres
+- `index.html` : accueil (hero, projets en carrousel, compétences, parcours,
+  à propos, demande de projet en 4 étapes, contact). Le parcours couvre six
+  besoins (SaaS, vitrine, mobile, e-commerce, IA et design) et se termine par un
+  brief avec envoi par formulaire ou WhatsApp.
+- `pages/projets.html` : les 7 projets + filtres
 - `pages/parcours.html` : timeline complète + « Ce que j'explore »
 - `pages/a-propos.html` : portrait, bio, faits, démarche
 - `pages/contact.html` : email, WhatsApp, GitHub, LinkedIn, formulaire, horloge d'Abidjan
 - `pages/certificats.html` : certifications
 - `projets/` : une étude de cas par projet
-  (`cibanque`, `dona-ci`, `pigier-connect`, `jeuneavenir-ci`, `passerelle`, `bizflow`)
+  (`cibanque`, `dona-ci`, `pigier-connect`, `jeuneavenir-ci`, `passerelle`,
+  `bizflow`, `ya-satscope`)
+- `projets/ya-satscope.html` : étude de cas du projet d'équipe de stage,
+  illustrée par les 15 captures authentiques optimisées dans `assets/images/ya-satscope/`.
+  Les fonctionnalités et outils sont présentés comme travail d'équipe ; la fiche
+  précise la contribution de Junior et son niveau débutant.
 - `404.html` : page d'erreur (servie par GitHub Pages)
 - `css/style.css` : tout le design (tokens, composants, responsive, motion réduite)
-- `js/main.js` : curseur contextuel, compteurs, filtres, menu mobile,
-  voile de transition, bilingue FR/EN, formulaire, horloge, timeline
-- `assets/` : images (WebP), logo, CV (PDF), certificat Excel (PDF)
+- `js/main.js` : intro, curseur contextuel, glissement du carrousel, mouvement du portrait, vague lettre
+  par lettre des titres, révélations,
+  compteurs, filtres, menu mobile, bilingue FR/EN, formulaires et parcours de
+  demande en 4 étapes
+- `assets/` : captures de YA SatScope (PNG), images (WebP), logo, CV (PDF),
+  certificat Excel (PDF)
 
 ## Bilingue FR / EN
 
