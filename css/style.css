@@ -438,6 +438,8 @@ form.contact-form{display:grid;gap:1.1rem}
 }
 .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent-bright);background:rgba(255,255,255,.09)}
 .contact-form textarea{min-height:140px;resize:vertical}
+.form-privacy{margin:0;color:var(--muted);font-size:.78rem;line-height:1.55}
+.contact-form .form-privacy{color:#AEBBC3}
 .form-msg{font:600 .85rem var(--font-body);min-height:1.5em;margin:0}
 .form-msg.ok{color:var(--accent-bright)}
 .form-msg.err{color:#F19999}
