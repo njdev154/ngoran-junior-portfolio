@@ -15,18 +15,19 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
 
-<!-- Rideau d'intro -->
-<div class="intro" aria-hidden="true">
+<!-- Intro affichée une seule fois par navigateur -->
+<dialog class="intro" aria-labelledby="intro-title" aria-describedby="intro-sub">
   <div class="intro-inner">
-    <div class="intro-logo">N'Goran <em>Junior</em></div>
-    <div class="intro-sub">Portfolio · 2026</div>
-    <div class="intro-bar"><i></i></div>
+    <span class="intro-mark" aria-hidden="true"><span class="intro-letter intro-letter-n">N</span><span class="intro-letter intro-letter-j">J</span><span class="intro-period">.</span></span>
+    <p class="intro-kicker">Portfolio personnel · Abidjan</p>
+    <h2 class="intro-logo" id="intro-title">N'Goran <em>Junior</em></h2>
+    <p class="intro-sub" id="intro-sub">Étudiant en informatique · Côte d'Ivoire</p>
+    <span class="intro-rule" aria-hidden="true"></span>
   </div>
   <button class="intro-skip" type="button" data-i18n="intro.skip">Passer l'intro</button>
-  <div class="intro-count" aria-hidden="true">0<small>%</small></div>
-</div>
+</dialog>
 <div class="veil" aria-hidden="true"></div>
-<div class="cursor" aria-hidden="true"><span class="cursor-label">VOIR</span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-dot"></span><span class="cursor-label"></span></div>
 
 <header class="site-header">
   <div class="wrap nav">
@@ -67,7 +68,7 @@
           <a class="btn btn-line" data-magnet href="assets/cv/CV_NGoran_Junior.pdf" target="_blank" rel="noopener" data-i18n="h.cta2">Télécharger mon CV</a>
         </div>
         <div class="hero-stats">
-          <div class="stat reveal"><b data-count="6">0</b><span data-i18n="st1">projets</span></div>
+          <div class="stat reveal"><b data-count="7">0</b><span data-i18n="st1">projets</span></div>
           <div class="stat reveal" style="--d:.1s"><b data-count="3">0</b><span data-i18n="st2">en ligne</span></div>
           <div class="stat reveal" style="--d:.2s"><b data-count="1">0</b><span data-i18n="st3">certification</span></div>
         </div>
@@ -119,7 +120,7 @@
       <div class="sec-head reveal">
         <p class="kicker" data-i18n="w.kicker">01 / Sélection</p>
         <h2 data-i18n="w.title">Travaux sélectionnés</h2>
-        <p data-i18n="w.sub">Six projets, du site vitrine à la plateforme Laravel. Chaque fiche précise ce qui est réel, ce qui est simulé et ce qui reste à faire.</p>
+        <p data-i18n="w.sub">Sept projets, des sites vitrines et plateformes web à un prototype de suivi satellitaire. Chaque fiche précise ce qui est réel et ce qui reste à valider.</p>
       </div>
       <div class="showcase reveal" id="proj-showcase" tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Projets sélectionnés" data-i18n-aria="car.label">
         <div class="sc-viewport">
@@ -178,6 +179,15 @@
             </div>
           </a>
         </article>
+        <article class="sc-slide" data-project="ya-satscope">
+          <a class="sc-link" href="projets/ya-satscope.html" data-cursor="VOIR" tabindex="-1">
+            <figure class="sc-media"><img src="assets/images/ya-satscope/01-accueil.png" alt="Écran d'accueil de YA SatScope" data-alt-en="YA SatScope home screen" width="1600" height="1000" loading="lazy"><span class="no">N°07</span><span class="chip wip"><i></i><span data-i18n="status.wip">En cours</span></span></figure>
+            <div class="sc-info">
+              <h3>YA SATSCOPE</h3>
+              <div class="sc-desc"><p data-i18n="yasatscope.d">Logiciel de suivi satellitaire et d'analyse du spectre conçu en équipe pendant mon stage.</p><p class="tags">Python · PySide6 · Skyfield · SQLite</p><span class="sc-more"><span data-i18n="car.more">Voir l'étude de cas</span><span class="arr" aria-hidden="true">→</span></span></div>
+            </div>
+          </a>
+        </article>
           </div>
         </div>
         <button type="button" class="sc-arrow sc-prev" id="sc-prev" aria-label="Projet précédent" data-i18n-aria="car.prev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m7-7l-7 7 7 7"/></svg></button>
@@ -190,11 +200,13 @@
           <button type="button" class="sc-dot" role="tab" aria-label="4"></button>
           <button type="button" class="sc-dot" role="tab" aria-label="5"></button>
           <button type="button" class="sc-dot" role="tab" aria-label="6"></button>
+          <button type="button" class="sc-dot" role="tab" aria-label="7"></button>
           </div>
-          <span class="sc-count mono"><span id="sc-i">01</span> / 06</span>
+          <span class="sc-count mono"><span id="sc-i">01</span> / 07</span>
+          <span class="sc-swipe-hint" data-i18n="car.swipe">Glissez ou utilisez les flèches</span>
         </div>
       </div>
-      <div class="center reveal" style="margin-top:2.6rem"><a class="btn btn-ghost" href="pages/projets.html" data-magnet><span data-i18n="w.all">Voir les six projets</span><span class="arr" aria-hidden="true">→</span></a></div>
+      <div class="center reveal" style="margin-top:2.6rem"><a class="btn btn-ghost" href="pages/projets.html" data-magnet><span data-i18n="w.all">Voir les sept projets</span><span class="arr" aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -286,47 +298,155 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="kicker" data-i18n="pj.kicker">Votre projet</p>
-        <h2 data-i18n="pj.title">Et le vôtre ?</h2>
-        <p data-i18n="pj.sub">Deux étapes : choisissez le type de projet, puis le délai. Votre message sera pré-rempli dans le formulaire.</p>
+        <h2 data-i18n="pj.title">Et votre idée, on en parle ?</h2>
+        <p data-i18n="pj.sub">Choisissez une direction, précisez les fonctions et envoyez un brief. Chaque demande sera étudiée avant de confirmer le périmètre et le délai.</p>
       </div>
-      <div class="pj-step reveal">
-        <p class="pj-stepname" data-i18n="pj.s1">Étape 1 — Le type de projet</p>
-      <div class="pj-grid" role="group" aria-label="Type de projet">
-        <button type="button" class="pj-card" data-type data-label-fr="Site vitrine" data-label-en="Showcase website" data-cursor="CHOISIR">
-          <span class="pj-radio" aria-hidden="true"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg>
-          <span class="pj-name" data-i18n="pj.t1">Site vitrine</span>
-          <span class="pj-desc" data-i18n="pj.d1">Présenter une activité, une école, une association.</span>
-        </button>
-        <button type="button" class="pj-card" data-type data-label-fr="Plateforme web" data-label-en="Web platform" data-cursor="CHOISIR">
-          <span class="pj-radio" aria-hidden="true"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
-          <span class="pj-name" data-i18n="pj.t2">Plateforme web</span>
-          <span class="pj-desc" data-i18n="pj.d2">Comptes utilisateurs, formulaires, recherche.</span>
-        </button>
-        <button type="button" class="pj-card" data-type data-label-fr="Application de gestion" data-label-en="Management app" data-cursor="CHOISIR">
-          <span class="pj-radio" aria-hidden="true"></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
-          <span class="pj-name" data-i18n="pj.t3">Application de gestion</span>
-          <span class="pj-desc" data-i18n="pj.d3">Clients, rendez-vous, paiements, statistiques.</span>
-        </button>
-      </div>
-      </div>
-      <div class="pj-step2" id="pj-step2" aria-hidden="true">
-        <p class="pj-stepname" data-i18n="pj.s2">Étape 2 — Le délai</p>
-      <div class="pj-delay">
-        <p class="pj-label" data-i18n="pj.when">Pour quand ?</p>
-        <div class="pj-pills" role="group" aria-label="Délai">
-          <button type="button" class="pj-pill" data-delay data-label-fr="Urgent" data-label-en="Urgent" data-i18n="pj.del1">Urgent</button>
-          <button type="button" class="pj-pill" data-delay data-label-fr="1 mois" data-label-en="1 month" data-i18n="pj.del2">1 mois</button>
-          <button type="button" class="pj-pill" data-delay data-label-fr="2-3 mois" data-label-en="2-3 months" data-i18n="pj.del3">2-3 mois</button>
-          <button type="button" class="pj-pill" data-delay data-label-fr="Flexible" data-label-en="Flexible" data-i18n="pj.del4">Flexible</button>
-        </div>
-      </div>
-      <div class="pj-cta reveal">
-        <button type="button" class="btn btn-solid" id="pj-go" data-magnet><span data-i18n="pj.go">C'est parti</span><span class="arr" aria-hidden="true">→</span></button>
-        <a href="https://wa.me/2250161506296" id="pj-wa" target="_blank" rel="noopener" data-i18n="pj.or">ou WhatsApp ↗</a>
-      </div>
+      <div class="pj-wizard reveal" id="pj-wizard">
+        <ol class="pj-progress" aria-label="Étapes de la demande" data-i18n-aria="pj.progressLabel">
+          <li class="active" aria-current="step"><span>01</span><span data-i18n="pj.stepType">Projet</span></li>
+          <li><span>02</span><span data-i18n="pj.stepModules">Fonctions</span></li>
+          <li><span>03</span><span data-i18n="pj.stepDelay">Délai</span></li>
+          <li><span>04</span><span data-i18n="pj.stepContact">Coordonnées</span></li>
+        </ol>
+
+        <section class="pj-panel" data-pj-step="0" aria-labelledby="pj-type-title">
+          <h3 class="pj-stepname" id="pj-type-title" tabindex="-1" data-i18n="pj.s1">01 — Quel type de besoin ?</h3>
+          <div class="pj-grid" role="group" aria-labelledby="pj-type-title">
+            <button type="button" class="pj-card" data-type="saas" data-label-fr="Application SaaS" data-label-en="SaaS application" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
+              <span class="pj-name" data-i18n="pj.saas">Application SaaS</span>
+              <span class="pj-desc" data-i18n="pj.saasDesc">Un service web avec comptes, rôles ou tableau de bord.</span>
+            </button>
+            <button type="button" class="pj-card" data-type="vitrine" data-label-fr="Site vitrine" data-label-en="Showcase website" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg>
+              <span class="pj-name" data-i18n="pj.vitrine">Site vitrine</span>
+              <span class="pj-desc" data-i18n="pj.vitrineDesc">Présenter une activité, une école ou une association.</span>
+            </button>
+            <button type="button" class="pj-card" data-type="mobile" data-label-fr="Application mobile" data-label-en="Mobile app" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.4"/><path d="M10 18.5h4"/></svg>
+              <span class="pj-name" data-i18n="pj.mobile">Application mobile</span>
+              <span class="pj-desc" data-i18n="pj.mobileDesc">Un besoin mobile à étudier avant de choisir la bonne solution.</span>
+            </button>
+            <button type="button" class="pj-card" data-type="ecommerce" data-label-fr="E-commerce" data-label-en="E-commerce" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16l-1.4 12H5.4L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+              <span class="pj-name" data-i18n="pj.ecommerce">E-commerce</span>
+              <span class="pj-desc" data-i18n="pj.ecommerceDesc">Catalogue, commandes et parcours d'achat à cadrer.</span>
+            </button>
+            <button type="button" class="pj-card" data-type="ia" data-label-fr="IA & automatisation" data-label-en="AI & automation" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v3m0 12v3M3 12h3m12 0h3"/><path d="m5.6 5.6 2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg>
+              <span class="pj-name" data-i18n="pj.ai">IA & automatisation</span>
+              <span class="pj-desc" data-i18n="pj.aiDesc">Vision par ordinateur, OCR ou automatisation à cadrer.</span>
+            </button>
+            <button type="button" class="pj-card" data-type="design" data-label-fr="Design d'interface" data-label-en="Interface design" aria-pressed="false" data-cursor="CHOISIR" data-cursor-en="SELECT">
+              <span class="pj-radio" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m4 16.5-.8 4.3 4.3-.8L20 7.5 16.5 4 4 16.5Z"/><path d="m14.8 5.7 3.5 3.5M4 20.8 8.3 20"/></svg>
+              <span class="pj-name" data-i18n="pj.design">Design d'interface</span>
+              <span class="pj-desc" data-i18n="pj.designDesc">Parcours, maquettes et écrans avant développement.</span>
+            </button>
+          </div>
+          <div class="pj-actions">
+            <button type="button" class="btn btn-solid pj-next" id="pj-next-type" disabled data-i18n="pj.continue">Continuer</button>
+          </div>
+        </section>
+
+        <section class="pj-panel" data-pj-step="1" aria-labelledby="pj-modules-title" hidden>
+          <h3 class="pj-stepname" id="pj-modules-title" tabindex="-1" data-i18n="pj.s2">02 — Quelles fonctions seraient utiles ?</h3>
+          <p class="pj-help" data-i18n="pj.modulesHelp">Choisissez une ou plusieurs pistes, ou laissez vide si vous préférez en discuter.</p>
+          <div class="pj-modules" id="pj-modules" role="group" aria-labelledby="pj-modules-title">
+            <div class="pj-module-set" data-module-set="saas" hidden>
+              <button type="button" class="pj-module" data-label-fr="Comptes et espaces utilisateurs" data-label-en="User accounts and spaces" aria-pressed="false" data-i18n="pj.modAccounts">Comptes et espaces utilisateurs</button>
+              <button type="button" class="pj-module" data-label-fr="Rôles et permissions" data-label-en="Roles and permissions" aria-pressed="false" data-i18n="pj.modRoles">Rôles et permissions</button>
+              <button type="button" class="pj-module" data-label-fr="Tableau de bord et rapports" data-label-en="Dashboard and reports" aria-pressed="false" data-i18n="pj.modDashboard">Tableau de bord et rapports</button>
+              <button type="button" class="pj-module" data-label-fr="Suivi de clients ou de dossiers" data-label-en="Customer or case tracking" aria-pressed="false" data-i18n="pj.modTracking">Suivi de clients ou de dossiers</button>
+            </div>
+            <div class="pj-module-set" data-module-set="vitrine" hidden>
+              <button type="button" class="pj-module" data-label-fr="Présentation des services" data-label-en="Service presentation" aria-pressed="false" data-i18n="pj.modPresentation">Présentation des services</button>
+              <button type="button" class="pj-module" data-label-fr="Formulaire de contact" data-label-en="Contact form" aria-pressed="false" data-i18n="pj.modContact">Formulaire de contact</button>
+              <button type="button" class="pj-module" data-label-fr="Inscription ou préinscription" data-label-en="Registration or pre-registration" aria-pressed="false" data-i18n="pj.modRegistration">Inscription ou préinscription</button>
+              <button type="button" class="pj-module" data-label-fr="Référencement local" data-label-en="Local search visibility" aria-pressed="false" data-i18n="pj.modLocalSeo">Référencement local</button>
+            </div>
+            <div class="pj-module-set" data-module-set="mobile" hidden>
+              <button type="button" class="pj-module" data-label-fr="Version web adaptée au mobile" data-label-en="Mobile-friendly web version" aria-pressed="false" data-i18n="pj.modMobileWeb">Version web adaptée au mobile</button>
+              <button type="button" class="pj-module" data-label-fr="Mode installable (PWA à étudier)" data-label-en="Installable mode (PWA to assess)" aria-pressed="false" data-i18n="pj.modPwa">Mode installable (PWA à étudier)</button>
+              <button type="button" class="pj-module" data-label-fr="Comptes et synchronisation" data-label-en="Accounts and sync" aria-pressed="false" data-i18n="pj.modSync">Comptes et synchronisation</button>
+              <button type="button" class="pj-module" data-label-fr="Notifications (à cadrer)" data-label-en="Notifications (to scope)" aria-pressed="false" data-i18n="pj.modNotifications">Notifications (à cadrer)</button>
+            </div>
+            <div class="pj-module-set" data-module-set="ecommerce" hidden>
+              <button type="button" class="pj-module" data-label-fr="Catalogue de produits" data-label-en="Product catalogue" aria-pressed="false" data-i18n="pj.modCatalog">Catalogue de produits</button>
+              <button type="button" class="pj-module" data-label-fr="Panier et commandes" data-label-en="Cart and orders" aria-pressed="false" data-i18n="pj.modOrders">Panier et commandes</button>
+              <button type="button" class="pj-module" data-label-fr="Paiement en ligne (à étudier)" data-label-en="Online payments (to assess)" aria-pressed="false" data-i18n="pj.modPayments">Paiement en ligne (à étudier)</button>
+              <button type="button" class="pj-module" data-label-fr="Suivi du stock" data-label-en="Stock tracking" aria-pressed="false" data-i18n="pj.modStock">Suivi du stock</button>
+            </div>
+            <div class="pj-module-set" data-module-set="ia" hidden>
+              <button type="button" class="pj-module" data-label-fr="Reconnaissance d'images" data-label-en="Image recognition" aria-pressed="false" data-i18n="pj.modVision">Reconnaissance d'images</button>
+              <button type="button" class="pj-module" data-label-fr="Lecture de texte (OCR)" data-label-en="Text extraction (OCR)" aria-pressed="false" data-i18n="pj.modOcr">Lecture de texte (OCR)</button>
+              <button type="button" class="pj-module" data-label-fr="Analyse depuis une caméra" data-label-en="Camera-based analysis" aria-pressed="false" data-i18n="pj.modCamera">Analyse depuis une caméra</button>
+              <button type="button" class="pj-module" data-label-fr="Prototype et essais" data-label-en="Prototype and testing" aria-pressed="false" data-i18n="pj.modEvaluation">Prototype et essais</button>
+            </div>
+            <div class="pj-module-set" data-module-set="design" hidden>
+              <button type="button" class="pj-module" data-label-fr="Parcours utilisateur" data-label-en="User journey" aria-pressed="false" data-i18n="pj.modResearch">Parcours utilisateur</button>
+              <button type="button" class="pj-module" data-label-fr="Maquettes filaires" data-label-en="Wireframes" aria-pressed="false" data-i18n="pj.modWireframes">Maquettes filaires</button>
+              <button type="button" class="pj-module" data-label-fr="Prototype interactif" data-label-en="Interactive prototype" aria-pressed="false" data-i18n="pj.modPrototype">Prototype interactif</button>
+              <button type="button" class="pj-module" data-label-fr="Écrans mobile et ordinateur" data-label-en="Mobile and desktop screens" aria-pressed="false" data-i18n="pj.modScreens">Écrans mobile et ordinateur</button>
+            </div>
+          </div>
+          <div class="pj-actions">
+            <button type="button" class="btn btn-line pj-back" data-pj-back="0" data-i18n="pj.back">Retour</button>
+            <button type="button" class="btn btn-solid pj-next" data-pj-next="2" data-i18n="pj.continue">Continuer</button>
+          </div>
+        </section>
+
+        <section class="pj-panel" data-pj-step="2" aria-labelledby="pj-delay-title" hidden>
+          <h3 class="pj-stepname" id="pj-delay-title" tabindex="-1" data-i18n="pj.s3">03 — Quel délai envisagez-vous ?</h3>
+          <p class="pj-help" data-i18n="pj.delayHelp">Indiquez votre préférence ; le délai réel sera discuté ensemble.</p>
+          <div class="pj-pills" role="group" aria-labelledby="pj-delay-title">
+            <button type="button" class="pj-pill" data-delay data-label-fr="Dès que possible" data-label-en="As soon as possible" aria-pressed="false" data-i18n="pj.del1">Dès que possible</button>
+            <button type="button" class="pj-pill" data-delay data-label-fr="Dans un mois" data-label-en="Within a month" aria-pressed="false" data-i18n="pj.del2">Dans un mois</button>
+            <button type="button" class="pj-pill" data-delay data-label-fr="Dans 2 à 3 mois" data-label-en="In 2 to 3 months" aria-pressed="false" data-i18n="pj.del3">Dans 2 à 3 mois</button>
+            <button type="button" class="pj-pill" data-delay data-label-fr="À définir ensemble" data-label-en="To be discussed" aria-pressed="false" data-i18n="pj.del4">À définir ensemble</button>
+          </div>
+          <div class="pj-actions">
+            <button type="button" class="btn btn-line pj-back" data-pj-back="1" data-i18n="pj.back">Retour</button>
+            <button type="button" class="btn btn-solid pj-next" id="pj-next-delay" disabled data-i18n="pj.continue">Continuer</button>
+          </div>
+        </section>
+
+        <section class="pj-panel pj-final" data-pj-step="3" aria-labelledby="pj-final-title" hidden>
+          <h3 class="pj-stepname" id="pj-final-title" tabindex="-1" data-i18n="pj.s4">04 — Vos coordonnées et votre brief</h3>
+          <dl class="pj-summary">
+            <div><dt data-i18n="pj.summaryType">Type de besoin</dt><dd id="pj-summary-type"></dd></div>
+            <div><dt data-i18n="pj.summaryModules">Fonctions</dt><dd id="pj-summary-modules"></dd></div>
+            <div><dt data-i18n="pj.summaryDelay">Délai souhaité</dt><dd id="pj-summary-delay"></dd></div>
+          </dl>
+          <p class="pj-note" data-i18n="pj.note">Cette sélection prépare la discussion. Faisabilité, périmètre et délai seront confirmés ensemble avant tout engagement.</p>
+          <form class="pj-contact-form" id="pj-contact-form" action="https://formspree.io/f/mgaevrwr" method="POST">
+            <input type="hidden" name="_subject" id="pj-subject" value="Nouvelle demande de projet">
+            <input type="hidden" name="project_type" id="pj-type-field">
+            <input type="hidden" name="features" id="pj-features-field">
+            <input type="hidden" name="preferred_timeline" id="pj-timeline-field">
+            <div class="pj-form-grid">
+              <label><span data-i18n="pj.name">Nom complet *</span><input type="text" name="name" autocomplete="name" required></label>
+              <label><span data-i18n="pj.company">Entreprise (facultatif)</span><input type="text" name="company" autocomplete="organization"></label>
+              <label><span>Email *</span><input type="email" name="email" autocomplete="email" required></label>
+              <label><span data-i18n="pj.phone">Téléphone / WhatsApp (facultatif)</span><input type="tel" name="phone" autocomplete="tel"></label>
+              <label class="pj-form-full"><span data-i18n="pj.brief">Décrivez le besoin en quelques phrases *</span><textarea name="message" rows="4" required></textarea></label>
+            </div>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="pj-honeypot" aria-hidden="true">
+            <p class="pj-file-note" data-i18n="pj.fileNote">Vous pourrez transmettre un cahier des charges après le premier échange par WhatsApp ou par e-mail.</p>
+            <div class="pj-actions">
+              <button type="button" class="btn btn-line pj-back" data-pj-back="2" data-i18n="pj.edit">Modifier mon projet</button>
+              <a class="btn btn-accent" id="pj-wa" href="https://wa.me/2250161506296" target="_blank" rel="noopener" data-i18n="pj.whatsapp">Continuer sur WhatsApp</a>
+              <button class="btn btn-solid" type="submit" data-i18n="pj.send">Envoyer la demande</button>
+            </div>
+            <p class="pj-form-msg" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <p class="pj-live" id="pj-live" role="status" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -393,9 +513,9 @@ window.PF_PAGE_EN = {
   "h.scroll": "Scroll",
   "st1": "projects", "st2": "live", "st3": "certification",
   "w.kicker": "01 / Selected work", "w.title": "Selected work",
-  "w.sub": "Six projects, from showcase sites to Laravel platforms. Each case study states what is real, what is simulated and what remains to be done.",
+  "w.sub": "Seven projects, from showcase sites and Laravel platforms to a desktop satellite-tracking prototype. Each case study states what is real, what is simulated and what remains to be done.",
   "car.label": "Selected projects", "car.choose": "Choose a project", "car.prev": "Previous project", "car.next": "Next project",
-  "car.more": "Read the case study", "w.all": "See all six projects",
+  "car.more": "Read the case study", "car.swipe": "Swipe or use the arrows", "w.all": "See all seven projects",
   "mani.text": "Real projects, clean code, constant progress — that is how I build the web.",
   "cibanque.d": "Online banking mockup for Côte d'Ivoire: transfers, card, bills. Fictional data.",
   "dona.d": "Blood donation campaign site: campaign plan, resources and contact for organisations.",
@@ -403,6 +523,7 @@ window.PF_PAGE_EN = {
   "jeune.d": "Orientation, mentoring and internship offers for young Ivorians.",
   "passe.d": "Internships and work-study: students, companies and schools on one platform.",
   "biz.d": "Client, appointment and payment management for small service businesses.",
+  "yasatscope.d": "A team-built desktop app for satellite tracking and spectrum analysis during my internship.",
   "mq1": "Showcase websites", "mq2": "Web platforms", "mq3": "Management apps",
   "mq1b": "Showcase websites", "mq2b": "Web platforms", "mq3b": "Management apps",
   "sc.kicker": "02 / Skills", "sc.title": "My stack, project by project",
@@ -411,7 +532,7 @@ window.PF_PAGE_EN = {
   "m.level": "Level", "m.web": "Web development", "m.back": "Back end", "m.data": "Data", "m.tools": "Tools",
   "lv.pr": "Basics", "lv.pr2": "Basics", "lv.pr3": "Learning", "lv.pr4": "Learning",
   "lv.prog": "Learning", "lv.prog2": "Learning", "lv.prog3": "Learning", "lv.prog4": "Learning", "lv.prog5": "Learning",
-  "m.legend": "Dot = used in the project (N°01 to N°06, same order as above).",
+  "m.legend": "Dot = used in the project (N°01 to N°07, same order as above).",
   "x.study": "Studied in class", "x.study.v": "C language, SQL, Merise modelling, Linux.",
   "x.office": "Office tools", "x.office.v": "Excel (Microsoft certified), Word, Office 365.",
   "x.comm": "Communication", "x.comm.v": "Public speaking, remote work, creativity.",
@@ -437,15 +558,64 @@ window.PF_PAGE_EN = {
   "ft.t1": "Let's work", "ft.t2": "together.",
   "ft.cta": "Start a project",
   "pj.kicker": "Your project",
-  "pj.title": "And yours?",
-  "pj.sub": "Two steps: pick a project type, then a timeline. Your message will be pre-filled in the form.",
-  "pj.s1": "Step 1 — Project type", "pj.s2": "Step 2 — Timeline",
-  "pj.t1": "Showcase website", "pj.d1": "Present a business, a school, an association.",
-  "pj.t2": "Web platform", "pj.d2": "User accounts, forms, search.",
-  "pj.t3": "Management app", "pj.d3": "Clients, appointments, payments, statistics.",
-  "pj.when": "When for?",
-  "pj.del1": "Urgent", "pj.del2": "1 month", "pj.del3": "2-3 months", "pj.del4": "Flexible",
-  "pj.go": "Let's go", "pj.or": "or WhatsApp ↗"
+  "pj.title": "What would you like to build?",
+  "pj.sub": "Choose a direction, outline useful features, then send a clear brief. Every request is reviewed before any scope or timeline is confirmed.",
+  "pj.progressLabel": "Project request steps",
+  "pj.stepType": "Project", "pj.stepModules": "Features", "pj.stepDelay": "Timeline", "pj.stepContact": "Your details",
+  "pj.s1": "01 — What kind of project do you have in mind?",
+  "pj.s2": "02 — Which features should we discuss?",
+  "pj.s3": "03 — What timeline are you considering?",
+  "pj.s4": "04 — Your details and brief",
+  "pj.modulesHelp": "Choose one or more options, or leave this blank if you would rather discuss them.",
+  "pj.delayHelp": "This is your preference; the actual timeline can be discussed together.",
+  "pj.continue": "Continue", "pj.back": "Back", "pj.edit": "Edit project choices",
+  "pj.saas": "SaaS application", "pj.saasDesc": "A web service with accounts, roles or a dashboard.",
+  "pj.vitrine": "Showcase website", "pj.vitrineDesc": "Present a business, school or association.",
+  "pj.mobile": "Mobile application", "pj.mobileDesc": "A mobile need to assess before choosing a solution.",
+  "pj.ecommerce": "E-commerce", "pj.ecommerceDesc": "A product catalogue, orders and a purchase flow to scope.",
+  "pj.ai": "AI & automation", "pj.aiDesc": "Computer vision, OCR or automation to scope.",
+  "pj.design": "Interface design", "pj.designDesc": "User journeys, wireframes and screens before development.",
+  "pj.modPresentation": "Present services",
+  "pj.modContact": "Contact form",
+  "pj.modRegistration": "Registration or pre-registration",
+  "pj.modAccounts": "User accounts and spaces",
+  "pj.modRoles": "Roles and permissions",
+  "pj.modDashboard": "Dashboard and reports",
+  "pj.modTracking": "Customer or case tracking",
+  "pj.modLocalSeo": "Local search visibility",
+  "pj.modMobileWeb": "Mobile-friendly web version",
+  "pj.modPwa": "Installable mode (PWA to assess)",
+  "pj.modSync": "Accounts and sync",
+  "pj.modNotifications": "Notifications (to scope)",
+  "pj.modCatalog": "Product catalogue",
+  "pj.modOrders": "Cart and orders",
+  "pj.modPayments": "Online payments (to assess)",
+  "pj.modStock": "Stock tracking",
+  "pj.modVision": "Image recognition",
+  "pj.modOcr": "Text extraction (OCR)",
+  "pj.modCamera": "Camera-based analysis",
+  "pj.modEvaluation": "Prototype and testing",
+  "pj.modResearch": "User journey",
+  "pj.modWireframes": "Wireframes",
+  "pj.modPrototype": "Interactive prototype",
+  "pj.modScreens": "Mobile and desktop screens",
+  "pj.del1": "As soon as possible",
+  "pj.del2": "Within a month",
+  "pj.del3": "In 2 to 3 months",
+  "pj.del4": "To be discussed",
+  "pj.summaryType": "Project type",
+  "pj.summaryModules": "Features",
+  "pj.summaryDelay": "Preferred timeline",
+  "pj.note": "This selection starts the conversation; feasibility, scope and timing are confirmed together before any commitment.",
+  "pj.name": "Full name *",
+  "pj.company": "Company (optional)",
+  "pj.phone": "Phone / WhatsApp (optional)",
+  "pj.brief": "Describe your need in a few sentences *",
+  "pj.fileNote": "You can share a specification document after the first exchange by WhatsApp or email.",
+  "pj.whatsapp": "Continue on WhatsApp",
+  "pj.send": "Send the request",
+  "pj.formSuccess": "Request sent. I will get back to you soon.",
+  "pj.formError": "The request could not be sent. Please contact me by WhatsApp or email."
 };
 </script>
 <script src="js/main.js" defer></script>
