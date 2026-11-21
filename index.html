@@ -25,6 +25,24 @@
     <span class="intro-rule" aria-hidden="true"></span>
   </div>
 </dialog>
+<script>
+/* Intro : décidée pendant l'analyse du document, avant le rendu de l'accueil. */
+(function () {
+  const intro = document.querySelector(".intro");
+  if (!intro) return;
+  const key = "nj-portfolio-intro-seen-v4";
+  let seen = false;
+  try { seen = localStorage.getItem(key) === "1"; } catch (error) {}
+  if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) { intro.remove(); return; }
+  try { localStorage.setItem(key, "1"); } catch (error) {}
+  intro.classList.add("is-entering");
+  try { intro.showModal(); } catch (error) { intro.remove(); return; }
+  const finish = () => { if (intro.open) intro.close(); };
+  intro.addEventListener("animationend", (event) => { if (event.target === intro) finish(); });
+  window.setTimeout(() => intro.classList.add("is-leaving"), 3850);
+  window.setTimeout(finish, 4500);
+})();
+</script>
 <div class="veil" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-dot"></span><span class="cursor-label"></span></div>
 
