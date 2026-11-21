@@ -198,8 +198,8 @@ body.cursor-on .cursor{opacity:1}
 .lang span{color:var(--line)}
 .burger{
   display:none;align-items:center;justify-content:center;position:relative;
-  width:48px;height:48px;padding:0;border:1px solid var(--line);
-  border-radius:14px;background:var(--surface);color:var(--ink);cursor:pointer;
+  width:44px;height:44px;padding:0;border:1px solid var(--line);
+  border-radius:12px;background:var(--surface);color:var(--ink);cursor:pointer;
   transition:transform .3s var(--ease),background .3s,border-color .3s,color .3s;
   -webkit-tap-highlight-color:transparent;
 }
@@ -567,7 +567,7 @@ form.contact-form{display:grid;gap:1.1rem}
   .menu{
     position:fixed;inset:0;z-index:89;background:var(--ink);color:#fff;
     flex-direction:column;align-items:flex-start;justify-content:center;
-    gap:0;padding:4rem 2.2rem 2rem;margin:0;
+    gap:0;padding:6rem 2rem 2rem;margin:0;
     clip-path:inset(0 0 100% 0);transition:clip-path .65s var(--ease-expo);
     transform:none;border:0;
   }
@@ -575,8 +575,8 @@ form.contact-form{display:grid;gap:1.1rem}
   .menu li{overflow:hidden;width:100%;list-style:none}
   .menu a{
     display:block;color:#fff;text-decoration:none;
-    font:800 clamp(2.1rem,10vw,3rem)/1.35 var(--font-title);letter-spacing:-.02em;
-    padding:.3rem 0;transform:translateY(115%);
+    font:800 clamp(1.35rem,6vw,1.7rem)/1.3 var(--font-title);letter-spacing:-.02em;
+    padding:.45rem 0;transform:translateY(115%);
     transition:transform .55s var(--ease-expo),color .3s,padding-left .3s var(--ease);
   }
   .menu a:hover{color:var(--accent-bright);padding-left:.6rem}
@@ -587,8 +587,8 @@ form.contact-form{display:grid;gap:1.1rem}
   .menu.open li:nth-child(4) a{transition-delay:.37s}
   body.menu-open{overflow:hidden}
   body.menu-open .site-header{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
-  body.menu-open .burger{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.08)}
-  body.menu-open .burger:hover{background:rgba(255,255,255,.15)}
+  body.menu-open .burger{color:var(--ink);border-color:var(--accent-bright);background:var(--accent-bright)}
+  body.menu-open .burger:hover{background:var(--accent);border-color:var(--accent)}
   body.menu-open .nav-tools{position:relative;z-index:100}
   body.menu-open .brand{opacity:0;pointer-events:none}
   .brand{transition:opacity .3s}
