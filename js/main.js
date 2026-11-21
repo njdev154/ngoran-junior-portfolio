@@ -16,11 +16,11 @@
     try { seen = localStorage.getItem(introKey) === "1"; }
     catch (error) { console.warn("Impossible de lire la préférence de l'intro.", error); }
 
-    if (!reduced && !seen && typeof intro.showModal === "function") {
+    if (intro.open || (!reduced && !seen && typeof intro.showModal === "function")) {
       try { localStorage.setItem(introKey, "1"); }
       catch (error) { console.warn("Impossible de mémoriser l'intro.", error); }
       intro.classList.add("is-entering");
-      intro.showModal();
+      if (!intro.open) intro.showModal();
       const finishIntro = () => { if (intro.open) intro.close(); };
       intro.addEventListener("animationend", (event) => {
         if (event.target === intro) finishIntro();
